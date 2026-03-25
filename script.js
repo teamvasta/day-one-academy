@@ -4,6 +4,54 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // ========== Password Gate ==========
+  const SITE_PASSWORD = 'day1bjj';
+
+  function createPasswordGate() {
+    if (sessionStorage.getItem('day1_authenticated') === 'true') {
+      document.body.classList.remove('locked');
+      return;
+    }
+
+    document.body.classList.add('locked');
+
+    const gate = document.createElement('div');
+    gate.id = 'password-gate';
+    gate.innerHTML = `
+      <div class="gate-card">
+        <div class="gate-logo">DAY1</div>
+        <div class="gate-logo-sub">Brazilian Jiu-Jitsu</div>
+        <p class="gate-msg">This site is password protected.</p>
+        <form id="gate-form">
+          <input type="password" id="gate-input" placeholder="Enter password" autocomplete="off" autofocus>
+          <button type="submit">Enter</button>
+        </form>
+        <p class="gate-error" id="gate-error"></p>
+      </div>
+    `;
+    document.body.appendChild(gate);
+
+    document.getElementById('gate-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const val = document.getElementById('gate-input').value;
+      if (val === SITE_PASSWORD) {
+        sessionStorage.setItem('day1_authenticated', 'true');
+        gate.classList.add('gate-fade-out');
+        setTimeout(() => {
+          gate.remove();
+          document.body.classList.remove('locked');
+        }, 400);
+      } else {
+        const err = document.getElementById('gate-error');
+        err.textContent = 'Incorrect password.';
+        document.getElementById('gate-input').value = '';
+        document.getElementById('gate-input').focus();
+      }
+    });
+  }
+
+  createPasswordGate();
+
   // ========== Mobile Navigation Toggle ==========
   const navToggle = document.getElementById('nav-toggle');
   const navLinks = document.getElementById('nav-links');
