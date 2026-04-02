@@ -68,7 +68,8 @@
 
   --font-heading: 'Urbane', Arial, sans-serif;
   --font-body: Arial, Helvetica, sans-serif;
-  --max-width: 1100px;
+  --max-width: 1400px;
+  --side-padding: 40px;
   --transition: all 0.3s ease;
 }
 
@@ -99,7 +100,7 @@ img { max-width: 100%; display: block; }
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 var(--side-padding);
 }
 
 .section-title {
@@ -253,7 +254,7 @@ img { max-width: 100%; display: block; }
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
+  padding: 10px var(--side-padding);
 }
 
 .navbar__links {
@@ -425,7 +426,7 @@ img { max-width: 100%; display: block; }
    WELCOME SECTION (HOME PAGE)
    ======================================== */
 .welcome {
-  padding: 60px 20px;
+  padding: 60px var(--side-padding);
   text-align: center;
   background: var(--white);
 }
@@ -459,7 +460,7 @@ img { max-width: 100%; display: block; }
    PROGRAMS SECTION (HOME)
    ======================================== */
 .programs {
-  padding: 60px 20px;
+  padding: 60px var(--side-padding);
   background: var(--off-white);
 }
 
@@ -512,7 +513,7 @@ img { max-width: 100%; display: block; }
    ABOUT SECTION (HOME)
    ======================================== */
 .about {
-  padding: 60px 20px;
+  padding: 60px var(--side-padding);
   background: var(--white);
 }
 
@@ -556,7 +557,7 @@ img { max-width: 100%; display: block; }
    TESTIMONIALS SECTION (HOME)
    ======================================== */
 .testimonials {
-  padding: 60px 20px;
+  padding: 60px var(--side-padding);
   background: var(--dark);
   text-align: center;
   color: var(--white);
@@ -587,7 +588,7 @@ img { max-width: 100%; display: block; }
    CONTACT SECTION (HOME)
    ======================================== */
 .contact-home {
-  padding: 60px 20px;
+  padding: 60px var(--side-padding);
   background: var(--off-white);
 }
 
@@ -661,7 +662,7 @@ img { max-width: 100%; display: block; }
    VISIT US SECTION (HOME + VISIT PAGE)
    ======================================== */
 .visit-section {
-  padding: 60px 20px;
+  padding: 60px var(--side-padding);
   background: var(--light-gray);
 }
 
@@ -710,7 +711,7 @@ img { max-width: 100%; display: block; }
    CTA SECTION
    ======================================== */
 .cta-section {
-  padding: 50px 20px;
+  padding: 50px var(--side-padding);
   background: var(--off-white);
   text-align: center;
 }
@@ -843,7 +844,7 @@ img { max-width: 100%; display: block; }
    ABOUT US PAGE
    ======================================== */
 .instructors-section {
-  padding: 60px 20px;
+  padding: 60px var(--side-padding);
   background: var(--white);
 }
 
@@ -892,7 +893,7 @@ img { max-width: 100%; display: block; }
 
 /* What Makes Day 1 Different */
 .differentiators {
-  padding: 60px 20px;
+  padding: 60px var(--side-padding);
   background: var(--off-white);
 }
 
@@ -932,7 +933,7 @@ img { max-width: 100%; display: block; }
    PROGRAMS PAGES (KIDS / ADULTS)
    ======================================== */
 .program-detail {
-  padding: 60px 20px;
+  padding: 60px var(--side-padding);
   text-align: center;
   background: var(--white);
 }
@@ -994,7 +995,7 @@ img { max-width: 100%; display: block; }
 
 /* Difference / System Section */
 .system-section {
-  padding: 50px 20px;
+  padding: 50px var(--side-padding);
   background: var(--off-white);
 }
 .system-section h2 {
@@ -1022,7 +1023,7 @@ img { max-width: 100%; display: block; }
 
 /* FAQ Section */
 .faq-section {
-  padding: 60px 20px;
+  padding: 60px var(--side-padding);
   background: var(--white);
 }
 
@@ -1075,7 +1076,7 @@ img { max-width: 100%; display: block; }
    SCHEDULE PAGE
    ======================================== */
 .schedule-section {
-  padding: 60px 20px;
+  padding: 60px var(--side-padding);
   background: var(--white);
 }
 
@@ -1159,7 +1160,7 @@ img { max-width: 100%; display: block; }
    CONTACT PAGE
    ======================================== */
 .contact-page {
-  padding: 60px 20px;
+  padding: 60px var(--side-padding);
   background: var(--white);
 }
 
@@ -1226,7 +1227,7 @@ img { max-width: 100%; display: block; }
    VISIT DAY 1 PAGE
    ======================================== */
 .visitors-section {
-  padding: 50px 20px;
+  padding: 50px var(--side-padding);
   text-align: center;
   background: var(--white);
 }
