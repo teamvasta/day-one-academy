@@ -207,6 +207,11 @@ img { max-width: 100%; display: block; }
   padding: 10px 20px;
 }
 
+.navbar__links {
+  flex: 1;
+  justify-content: center;
+}
+
 .navbar__logo {
   display: flex;
   align-items: center;
