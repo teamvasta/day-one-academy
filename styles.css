@@ -215,24 +215,11 @@ img { max-width: 100%; display: block; }
 .navbar__logo {
   display: flex;
   align-items: center;
-  gap: 6px;
 }
 
-.navbar__logo-text {
-  font-family: var(--font-heading);
-  font-size: 2rem;
-  font-weight: 800;
-  color: var(--black);
-  line-height: 1;
-}
-
-.navbar__logo-sub {
-  font-family: var(--font-heading);
-  font-size: 0.45rem;
-  font-weight: 400;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: var(--medium-gray);
+.navbar__logo-img {
+  height: 40px;
+  width: auto;
   display: block;
 }
 
