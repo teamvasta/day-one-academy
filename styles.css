@@ -2,7 +2,56 @@
    DAY 1 BRAZILIAN JIU-JITSU - GLOBAL STYLES
    ======================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+/* Urbane Font Family */
+@font-face {
+  font-family: 'Urbane';
+  src: url('fonts/urbane/Urbane-Light.woff2') format('woff2'),
+       url('fonts/urbane/Urbane-Light.woff') format('woff'),
+       url('fonts/urbane/Urbane-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Urbane';
+  src: url('fonts/urbane/Urbane-Medium.woff2') format('woff2'),
+       url('fonts/urbane/Urbane-Medium.woff') format('woff'),
+       url('fonts/urbane/Urbane-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Urbane';
+  src: url('fonts/urbane/Urbane-DemiBold.woff2') format('woff2'),
+       url('fonts/urbane/Urbane-DemiBold.woff') format('woff'),
+       url('fonts/urbane/Urbane-DemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Urbane';
+  src: url('fonts/urbane/Urbane-Bold.woff2') format('woff2'),
+       url('fonts/urbane/Urbane-Bold.woff') format('woff'),
+       url('fonts/urbane/Urbane-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Urbane';
+  src: url('fonts/urbane/Urbane-Heavy.woff2') format('woff2'),
+       url('fonts/urbane/Urbane-Heavy.woff') format('woff'),
+       url('fonts/urbane/Urbane-Heavy.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* CSS Variables */
 :root {
@@ -17,8 +66,8 @@
   --gold-dark: #a88234;
   --gold-light: #d4b76a;
 
-  --font-heading: 'Oswald', sans-serif;
-  --font-body: 'Open Sans', sans-serif;
+  --font-heading: 'Urbane', Arial, sans-serif;
+  --font-body: Arial, Helvetica, sans-serif;
   --max-width: 1100px;
   --transition: all 0.3s ease;
 }
