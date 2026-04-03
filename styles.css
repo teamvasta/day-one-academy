@@ -480,6 +480,9 @@ img { max-width: 100%; display: block; }
   box-shadow: none;
   transition: var(--transition);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .program-card:hover {
   transform: translateY(-4px);
@@ -495,6 +498,10 @@ img { max-width: 100%; display: block; }
 
 .program-card__content {
   padding: 20px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
 }
 .program-card__content h3 {
   font-family: var(--font-heading);
@@ -511,6 +518,10 @@ img { max-width: 100%; display: block; }
   letter-spacing: 1px;
   margin-bottom: 18px;
   line-height: 1.6;
+  flex: 1;
+}
+.program-card__content .btn {
+  margin-top: auto;
 }
 
 /* ========================================
@@ -1255,6 +1266,9 @@ img { max-width: 100%; display: block; }
   border-radius: 16px;
   border: 1.5px solid #e0e0e0;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .visitor-card h3 {
   font-family: var(--font-heading);
@@ -1269,6 +1283,10 @@ img { max-width: 100%; display: block; }
   color: var(--medium-gray);
   margin-bottom: 18px;
   line-height: 1.6;
+  flex: 1;
+}
+.visitor-card .btn {
+  margin-top: auto;
 }
 
 .waiver-notice {
