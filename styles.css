@@ -476,7 +476,7 @@ img { max-width: 100%; display: block; }
 }
 
 .hero__cta { margin-top: 16px; }
-.hero__cta .btn { border-radius: 25px; }
+.hero__cta .btn { border-radius: 0; }
 
 /* ========================================
    WELCOME SECTION (HOME PAGE)
