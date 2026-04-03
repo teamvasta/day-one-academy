@@ -75,6 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Close menu on link click
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
+        // Don't close if it's the dropdown parent on mobile
+        if (link.closest('.navbar__dropdown') && link === link.closest('.navbar__dropdown').querySelector(':scope > a')) return;
         navLinks.classList.remove('active');
         navToggle.classList.remove('open');
         const spans = navToggle.querySelectorAll('span');
@@ -84,6 +86,16 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  // ========== Mobile Dropdown Toggle ==========
+  document.querySelectorAll('.navbar__dropdown > a').forEach(trigger => {
+    trigger.addEventListener('click', function(e) {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        this.closest('.navbar__dropdown').classList.toggle('open');
+      }
+    });
+  });
 
   // ========== Scroll Animations ==========
   const animateElements = document.querySelectorAll('.fade-in');
