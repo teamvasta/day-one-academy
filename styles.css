@@ -522,6 +522,8 @@ img { max-width: 100%; display: block; }
 }
 .program-card__content .btn {
   margin-top: auto;
+  width: fit-content;
+  align-self: center;
 }
 
 /* ========================================
@@ -1287,6 +1289,8 @@ img { max-width: 100%; display: block; }
 }
 .visitor-card .btn {
   margin-top: auto;
+  width: fit-content;
+  align-self: center;
 }
 
 .waiver-notice {
