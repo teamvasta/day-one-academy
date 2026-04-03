@@ -524,6 +524,9 @@ img { max-width: 100%; display: block; }
   margin-top: auto;
   width: fit-content;
   align-self: center;
+  white-space: nowrap;
+  padding: 12px 25px;
+  font-size: 0.75rem;
 }
 
 /* ========================================
@@ -1291,6 +1294,9 @@ img { max-width: 100%; display: block; }
   margin-top: auto;
   width: fit-content;
   align-self: center;
+  white-space: nowrap;
+  padding: 12px 25px;
+  font-size: 0.75rem;
 }
 
 .waiver-notice {
