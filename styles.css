@@ -132,7 +132,7 @@ img { max-width: 100%; display: block; }
   text-transform: uppercase;
   letter-spacing: 2px;
   border: 2px solid transparent;
-  border-radius: 50px;
+  border-radius: 0;
   cursor: pointer;
   transition: var(--transition);
   text-align: center;
@@ -437,7 +437,7 @@ img { max-width: 100%; display: block; }
 .hero__content h1 {
   font-family: var(--font-heading);
   font-size: 2.2rem;
-  font-weight: 800;
+  font-weight: 700;
   text-transform: uppercase;
   line-height: 1.1;
   margin-bottom: 10px;
@@ -467,7 +467,7 @@ img { max-width: 100%; display: block; }
 .hero__day1 {
   font-family: var(--font-heading);
   font-size: 1.05rem;
-  font-weight: 800;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--gold);
@@ -826,7 +826,7 @@ img { max-width: 100%; display: block; }
 .footer__logo-text {
   font-family: var(--font-heading);
   font-size: 1.6rem;
-  font-weight: 800;
+  font-weight: 700;
 }
 .footer__logo-sub {
   font-size: 0.4rem;
@@ -904,7 +904,7 @@ img { max-width: 100%; display: block; }
 .page-hero__content h1 {
   font-family: var(--font-heading);
   font-size: 3rem;
-  font-weight: 800;
+  font-weight: 700;
   text-transform: uppercase;
   line-height: 1.1;
   margin-bottom: 10px;
@@ -1170,7 +1170,7 @@ img { max-width: 100%; display: block; }
 .schedule-header .schedule-logo {
   font-family: var(--font-heading);
   font-size: 1.8rem;
-  font-weight: 800;
+  font-weight: 700;
   text-align: right;
   line-height: 1;
 }
@@ -1361,7 +1361,7 @@ img { max-width: 100%; display: block; }
   color: var(--medium-gray);
 }
 .waiver-notice strong {
-  font-weight: 800;
+  font-weight: 700;
   color: var(--black);
 }
 
@@ -1494,7 +1494,7 @@ body.locked { overflow: hidden; }
 .gate-logo {
   font-family: var(--font-heading);
   font-size: 3rem;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--white);
   line-height: 1;
 }
