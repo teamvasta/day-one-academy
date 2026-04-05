@@ -394,7 +394,7 @@ img { max-width: 100%; display: block; }
   position: relative;
   min-height: 400px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   background: var(--dark);
   overflow: hidden;
 }
@@ -431,7 +431,7 @@ img { max-width: 100%; display: block; }
 .hero__content {
   max-width: 500px;
   color: var(--white);
-  padding: 60px 0 40px;
+  padding: 30px 0 40px;
 }
 
 .hero__content h1 {
