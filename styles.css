@@ -1172,12 +1172,6 @@ img { max-width: 100%; display: block; }
   width: auto;
 }
 
-.schedule-spacer td {
-  background: transparent !important;
-  height: 30px;
-  padding: 0 !important;
-}
-
 .schedule-table {
   width: 100%;
   border-collapse: separate;
