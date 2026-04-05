@@ -221,6 +221,13 @@ img { max-width: 100%; display: block; }
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+}
+
+.top-bar__cta-wrapper {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .top-bar a {
@@ -283,7 +290,7 @@ img { max-width: 100%; display: block; }
 .navbar__links a {
   font-family: var(--font-heading);
   font-size: 0.8rem;
-  font-weight: 500;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   color: var(--black);
