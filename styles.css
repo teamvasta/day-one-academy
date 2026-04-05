@@ -1179,7 +1179,7 @@ img { max-width: 100%; display: block; }
 }
 
 .schedule-table th {
-  background: var(--gold);
+  background: var(--black);
   color: var(--white);
   font-family: var(--font-heading);
   font-size: 0.75rem;
