@@ -1183,15 +1183,10 @@ img { max-width: 100%; display: block; }
   color: var(--medium-gray);
 }
 
-.schedule-table-wrapper {
-  border-top: 4px solid var(--black);
-  border-bottom: 4px solid var(--black);
-}
-
 .schedule-table {
   width: 100%;
-  border-collapse: collapse;
-  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 6px;
 }
 
 .schedule-table th {
@@ -1204,38 +1199,36 @@ img { max-width: 100%; display: block; }
   letter-spacing: 1px;
   padding: 10px 8px;
   text-align: center;
-  border: 2px solid var(--white);
+  border-radius: 0;
 }
 
 .schedule-table td {
-  background: var(--white);
-  padding: 14px 6px;
+  background: var(--off-white);
+  padding: 10px 6px;
   text-align: center;
   font-size: 0.7rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  vertical-align: middle;
+  border-radius: 0;
+  vertical-align: top;
   line-height: 1.4;
-  border: 1px solid #ddd;
-  height: 60px;
+  min-height: 50px;
 }
 .schedule-table td.empty {
-  background: var(--white);
+  background: transparent;
 }
 
 .schedule-table td .time {
   font-weight: 700;
   color: var(--black);
   display: block;
-  font-size: 0.8rem;
 }
 .schedule-table td .class-name {
-  color: #555;
+  color: var(--medium-gray);
   font-weight: 500;
   display: block;
   font-size: 0.65rem;
-  margin-top: 2px;
 }
 
 /* ========================================
