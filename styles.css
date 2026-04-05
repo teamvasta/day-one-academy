@@ -431,7 +431,7 @@ img { max-width: 100%; display: block; }
 .hero__content {
   max-width: 500px;
   color: var(--white);
-  padding: 40px 0;
+  padding: 60px 0 40px;
 }
 
 .hero__content h1 {
