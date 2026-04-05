@@ -394,7 +394,7 @@ img { max-width: 100%; display: block; }
   position: relative;
   min-height: 400px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   background: var(--dark);
   overflow: hidden;
 }
