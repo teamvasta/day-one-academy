@@ -1167,20 +1167,9 @@ img { max-width: 100%; display: block; }
   font-weight: 700;
   text-transform: uppercase;
 }
-.schedule-header .schedule-logo {
-  font-family: var(--font-heading);
-  font-size: 1.8rem;
-  font-weight: 700;
-  text-align: right;
-  line-height: 1;
-}
-.schedule-header .schedule-logo span {
-  display: block;
-  font-size: 0.5rem;
-  font-weight: 400;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--medium-gray);
+.schedule-logo-img {
+  height: 55px;
+  width: auto;
 }
 
 .schedule-table {
@@ -1211,7 +1200,7 @@ img { max-width: 100%; display: block; }
   text-transform: uppercase;
   letter-spacing: 0.5px;
   border-radius: 0;
-  vertical-align: top;
+  vertical-align: middle;
   line-height: 1.4;
   min-height: 50px;
 }
