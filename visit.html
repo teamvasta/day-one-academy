@@ -175,5 +175,94 @@
   </footer>
 
   <script src="script.js"></script>
+
+<!-- FREE TRIAL MODAL -->
+<div class="trial-modal-overlay" id="trialModalOverlay">
+  <div class="trial-modal">
+    <div class="trial-modal__header">
+      <button class="trial-modal__close" id="trialModalClose">&times;</button>
+      <h2>Book Your Free Trial</h2>
+      <p>Schedule your FREE class today!</p>
+    </div>
+    <div class="trial-modal__body">
+      <form id="trial-modal-form">
+        <label>First Name</label>
+        <input type="text" name="firstName" placeholder="First Name" required>
+        <label>Last Name</label>
+        <input type="text" name="lastName" placeholder="Last Name">
+        <label>Email *</label>
+        <input type="email" name="email" placeholder="Email" required>
+        <label>Phone *</label>
+        <input type="tel" name="phone" placeholder="Phone" required>
+        <label>What Program are you interested in? *</label>
+        <select name="program" required>
+          <option value="">Select…</option>
+          <option value="kids-7-9">Kids (7-9 yrs)</option>
+          <option value="kids-10-15">Kids (10-15 yrs)</option>
+          <option value="adults-fundamentals">Adults - Fundamentals</option>
+          <option value="adults-advanced">Adults - Intermediate/Advanced</option>
+          <option value="private">Private Training</option>
+        </select>
+        <p class="contact-form__disclaimer">By opting into the web form above you are providing consent for Bernardo Faria Academy to send you periodic text messages. Standard rates may apply. You can reply HELP at anytime or learn more. You may opt-out anytime by replying STOP.</p>
+        <button type="submit" class="btn btn-gold">Schedule Your Free Trial Class</button>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var overlay = document.getElementById('trialModalOverlay');
+  var closeBtn = document.getElementById('trialModalClose');
+  function openModal(e){
+    e.preventDefault();
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function(){ overlay.classList.add('visible'); }, 10);
+  }
+  function closeModal(){
+    overlay.classList.remove('visible');
+    document.body.style.overflow = '';
+    setTimeout(function(){ overlay.classList.remove('active'); }, 300);
+  }
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', function(e){ if(e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeModal(); });
+  document.querySelectorAll('a[href="#contact-form"], a[href="contact.html#contact-form"]').forEach(function(link){
+    if(link.textContent.toLowerCase().indexOf('waiver') === -1){
+      link.addEventListener('click', openModal);
+    }
+  });
+  document.getElementById('trial-modal-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    var form = this;
+    var btn = form.querySelector('button[type="submit"]');
+    var firstName = form.firstName.value;
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    var params = new URLSearchParams();
+    params.append('firstName', firstName);
+    params.append('lastName', form.lastName.value);
+    params.append('email', form.email.value);
+    params.append('phone', form.phone.value);
+    params.append('program', form.program.value);
+    fetch('https://script.google.com/macros/s/AKfycbzxp7RcI4xgF9FXmim69WzINDV0i8FEADcBgLiIfrHdJIjKs4a_7SIc-zJZiU2Y4tcW/exec',{
+      method:'POST', mode:'no-cors',
+      headers:{'Content-Type':'application/x-www-form-urlencoded'},
+      body: params.toString()
+    }).then(function(){
+      btn.textContent = 'Thank You, ' + firstName.toUpperCase() + '!';
+      btn.style.background = '#2d7d32';
+      form.reset();
+      setTimeout(function(){ closeModal(); btn.textContent='Schedule Your Free Trial Class'; btn.style.background=''; btn.disabled=false; }, 3000);
+    }).catch(function(){
+      btn.textContent = 'Thank You, ' + firstName.toUpperCase() + '!';
+      btn.style.background = '#2d7d32';
+      form.reset();
+      setTimeout(function(){ closeModal(); btn.textContent='Schedule Your Free Trial Class'; btn.style.background=''; btn.disabled=false; }, 3000);
+    });
+  });
+})();
+</script>
+
 </body>
 </html>
