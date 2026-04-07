@@ -223,16 +223,18 @@
       var originalText = btn.textContent;
       btn.textContent = 'Sending...';
       btn.disabled = true;
-      var formData = new FormData();
-      formData.append('firstName', form.firstName.value);
-      formData.append('lastName', form.lastName.value);
-      formData.append('email', form.email.value);
-      formData.append('phone', form.phone.value);
-      formData.append('program', form.program.value);
-      fetch('https://script.google.com/macros/s/AKfycbzb5QhX9p_kIPZxzRi7SnrrTLIHJr_aJwcqKOrWIhml3MqManABMOrfd_ZNJWvf87J1dQ/exec', {
+      var params = new URLSearchParams();
+      params.append('firstName', form.firstName.value);
+      params.append('lastName', form.lastName.value);
+      params.append('email', form.email.value);
+      params.append('phone', form.phone.value);
+      params.append('program', form.program.value);
+      fetch('https://script.google.com/macros/s/AKfycbxS5bB0UcQyRSNrttzQP8vGEqMRbqah4Rbyq8kWavyJc6fmKotFAuYKxd5yq0yUzdbjMg/exec', {
         method: 'POST',
-        body: formData
-      }).then(function(response) {
+        mode: 'no-cors',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: params.toString()
+      }).then(function() {
         btn.textContent = 'Thank You! We\'ll Be In Touch.';
         btn.style.background = '#2d7d32';
         form.reset();
