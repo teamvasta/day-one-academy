@@ -148,5 +148,36 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var form = this;
+      var btn = form.querySelector('button[type="submit"]');
+      var originalText = btn.textContent;
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      var params = new URLSearchParams();
+      params.append('firstName', form.firstName.value);
+      params.append('lastName', form.lastName.value);
+      params.append('email', form.email.value);
+      params.append('phone', form.phone.value);
+      params.append('program', form.program.value);
+      fetch('https://script.google.com/macros/s/AKfycbxS5bB0UcQyRSNrttzQP8vGEqMRbqah4Rbyq8kWavyJc6fmKotFAuYKxd5yq0yUzdbjMg/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: params.toString()
+      }).then(function() {
+        btn.textContent = 'Thank You! We\'ll Be In Touch.';
+        btn.style.background = '#2d7d32';
+        form.reset();
+        setTimeout(function() { btn.textContent = originalText; btn.style.background = ''; btn.disabled = false; }, 4000);
+      }).catch(function() {
+        btn.textContent = 'Error — Please Try Again';
+        btn.style.background = '#c62828';
+        setTimeout(function() { btn.textContent = originalText; btn.style.background = ''; btn.disabled = false; }, 3000);
+      });
+    });
+  </script>
 </body>
 </html>
