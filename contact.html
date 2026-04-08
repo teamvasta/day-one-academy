@@ -1,1 +1,312 @@
-/exec'/exec', {
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact Us - Day One Academy</title>
+      <!-- Use the same base styles as index.html -->
+      <link rel="stylesheet" href="style.css">
+      <style>
+                .contact-container {
+                              max-width: 800px;
+                              margin: 120px auto 60px;
+                              padding: 40px;
+                              background: white;
+                              border-radius: 12px;
+                              box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+                }
+
+                .contact-header {
+                              text-align: center;
+                              margin-bottom: 40px;
+                }
+
+                .contact-header h1 {
+                              font-size: 2.5rem;
+                              color: #1a1a1a;
+                              margin-bottom: 10px;
+                }
+
+                .contact-grid {
+                              display: grid;
+                              grid-template-columns: 1fr 1fr;
+                              gap: 40px;
+                }
+
+                .contact-info div {
+                              margin-bottom: 25px;
+                }
+
+                .contact-info h3 {
+                              color: #d12027;
+                              margin-bottom: 8px;
+                              font-size: 1.1rem;
+                }
+
+                .contact-info p {
+                              color: #666;
+                              line-height: 1.6;
+                }
+
+                .contact-form .form-group {
+                              margin-bottom: 20px;
+                }
+
+                .contact-form label {
+                              display: block;
+                              margin-bottom: 8px;
+                              color: #333;
+                              font-weight: 500;
+                }
+
+                .contact-form input, 
+                .contact-form select, 
+                .contact-form textarea {
+                              width: 100%;
+                              padding: 12px;
+                              border: 1px solid #ddd;
+                              border-radius: 6px;
+                              font-size: 1rem;
+                }
+
+                .contact-form button {
+                              width: 100%;
+                              padding: 14px;
+                              background: #d12027;
+                              color: white;
+                              border: none;
+                              border-radius: 6px;
+                              font-weight: 600;
+                              cursor: pointer;
+                              transition: background 0.3s;
+                }
+
+                .contact-form button:hover {
+                              background: #b01b21;
+                }
+
+                @media (max-width: 768px) {
+                              .contact-grid {
+                                                grid-template-columns: 1fr;
+                              }
+                              .contact-container {
+                                                margin: 100px 20px 40px;
+                                                padding: 25px;
+                              }
+                }
+            </style>
+  </head>
+  <body>
+        <header>
+                  <nav class="navbar">
+                                <div class="logo">
+                                                  <a href="index.html">
+                                                                        <img src="img/dayone-logo.png" alt="Day One Academy Logo">
+                                                  </a>a>
+                                </div>div>
+                                <ul class="nav-links">
+                                                  <li><a href="index.html#programs">Programs</a>a></li>
+                                                <li><a href="index.html#benefits">Benefits</a>a></li>
+                                                <li><a href="index.html#schedule">Schedule</a>a></li>
+                                                <li><a href="contact.html">Contact</a>a></li>
+                                                <li><a href="#" class="cta-button" onclick="openModal()">Free Trial</a>a></li>
+                                </ul>ul>
+                  </nav>nav>
+        </header>
+  
+      <div class="contact-container">
+              <div class="contact-header">
+                          <h1>Get in Touch</h1>
+                          <p>Have questions? We'd love to hear from you.</p>
+              </div>div>
+      
+              <div class="contact-grid">
+                          <div class="contact-info">
+                                          <div>
+                                                                <h3>Address</h3>
+                                                                <p>675 Prospect St<br>Lakewood, NJ 08701</p>p>
+                                          </div>
+                                            <div>
+                                                                  <h3>Phone</h3>
+                                                                <p>(732) 123-4567</p>
+                                            </div>
+                                          <div>
+                                                              <h3>Email</h3>
+                                                              <p>info@dayoneacademy.com</p>
+                                          </div>
+                                          <div>
+                                                              <h3>Hours</h3>
+                                                              <p>Monday - Thursday: 4:00 PM - 9:00 PM<br>
+                                                                                     Friday: 3:00 PM - 7:00 PM<br>
+                                                                                     Sunday: 9:00 AM - 2:00 PM</p>
+                                          </div>
+                          </div>
+              
+                          <div class="contact-form">
+                                          <form id="contact-page-form">
+                                                              <div class="form-group">
+                                                                                      <label>First Name</label>
+                                                                                      <input type="text" name="firstName" required>
+                                                              </div>
+                                                              <div class="form-group">
+                                                                                      <label>Last Name</label>
+                                                                                      <input type="text" name="lastName" required>
+                                                              </div>
+                                                              <div class="form-group">
+                                                                                      <label>Email</label>
+                                                                                      <input type="email" name="email" required>
+                                                              </div>
+                                                              <div class="form-group">
+                                                                                      <label>Program of Interest</label>
+                                                                                      <select name="program">
+                                                                                                                  <option value="brazilian-jiu-jitsu">Brazilian Jiu-Jitsu</option>option>
+                                                                                                                  <option value="muay-thai">Muay Thai</option>option>
+                                                                                                                  <option value="kids-martial-arts">Kids Martial Arts</option>option>
+                                                                                        </select>select>
+                                                              </div>
+                                                              <div class="form-group">
+                                                                                      <label>Message</label>
+                                                                                      <textarea name="message" rows="4"></textarea>
+                                                              </div>
+                                                              <button type="submit">Send Message</button>button>
+                                          </form>form>
+                          </div>
+              </div>
+      </div>
+  
+      <!-- Free Trial Modal (Reuse from index.html) -->
+      <div id="trialModal" class="modal">
+              <div class="modal-content">
+                          <span class="close" onclick="closeModal()">&times;</span>span>
+                          <h2>Schedule Your Free Trial Class</h2>
+                          <form id="trial-modal-form">
+                                          <div class="form-group">
+                                                              <input type="text" name="firstName" placeholder="First Name" required>
+                                          </div>
+                                          <div class="form-group">
+                                                              <input type="text" name="lastName" placeholder="Last Name" required>
+                                          </div>
+                                          <div class="form-group">
+                                                              <input type="email" name="email" placeholder="Email Address" required>
+                                          </div>
+                                          <div class="form-group">
+                                                              <input type="tel" name="phone" placeholder="Phone Number" required>
+                                          </div>
+                                          <div class="form-group">
+                                                              <select name="program" required>
+                                                                                      <option value="">Select a Program</option>option>
+                                                                                      <option value="brazilian-jiu-jitsu">Brazilian Jiu-Jitsu</option>option>
+                                                                                      <option value="muay-thai">Muay Thai</option>option>
+                                                                                      <option value="kids-martial-arts">Kids Martial Arts</option>option>
+                                                              </select>select>
+                                          </div>
+                                          <button type="submit" class="cta-button">Claim Your Free Class</button>button>
+                          </form>form>
+              </div>
+      </div>
+  
+      <script>
+                function openModal() {
+                              document.getElementById('trialModal').style.display = 'block';
+                }
+
+                function closeModal() {
+                              document.getElementById('trialModal').style.display = 'none';
+                }
+
+                window.onclick = function(event) {
+                              if (event.target == document.getElementById('trialModal')) {
+                                                closeModal();
+                              }
+                }
+
+                document.getElementById('contact-page-form').addEventListener('submit', function(e) {
+                              e.preventDefault();
+                              var form = this;
+                              var btn = form.querySelector('button[type="submit"]');
+                              var firstName = form.firstName.value;
+
+                              btn.disabled = true;
+                              btn.textContent = 'Sending...';
+
+                              var params = new URLSearchParams();
+                              params.append('firstName', firstName);
+                              params.append('lastName', form.lastName.value);
+                              params.append('email', form.email.value);
+                              params.append('program', form.program.value);
+                              params.append('message', form.message.value);
+
+                              fetch('https://script.google.com/macros/s/AKfycbzz_N2-TcQL50iuJWYixxm7ljJuP1WnpX621yx6gJ6YHITUEH579ZEnEv-24F1HPpbM/exec', {
+                                                method: 'POST',
+                                                mode: 'no-cors',
+                                                headers: {
+                                                                      'Content-Type': 'application/x-www-form-urlencoded'
+                                                },
+                                                body: params.toString()
+                              }).then(function() {
+                                                btn.textContent = 'Thank You, ' + firstName.toUpperCase() + '!';
+                                                btn.style.background = '#2d7d32';
+                                                form.reset();
+                              }).catch(function() {
+                                                btn.textContent = 'Thank You, ' + firstName.toUpperCase() + '!';
+                                                btn.style.background = '#2d7d32';
+                                                form.reset();
+                              });
+                });
+
+                document.getElementById('trial-modal-form').addEventListener('submit', function(e) {
+                              e.preventDefault();
+                              var form = this;
+                              var btn = form.querySelector('button[type="submit"]');
+                              var firstName = form.firstName.value;
+
+                              btn.disabled = true;
+                              btn.textContent = 'Sending...';
+
+                              var params = new URLSearchParams();
+                              params.append('firstName', firstName);
+                              params.append('lastName', form.lastName.value);
+                              params.append('email', form.email.value);
+                              params.append('phone', form.phone.value);
+                              params.append('program', form.program.value);
+
+                              fetch('https://script.google.com/macros/s/AKfycbzz_N2-TcQL50iuJWYixxm7ljJuP1WnpX621yx6gJ6YHITUEH579ZEnEv-24F1HPpbM/exec', {
+                                                method: 'POST',
+                                                mode: 'no-cors',
+                                                headers: {
+                                                                      'Content-Type': 'application/x-www-form-urlencoded'
+                                                },
+                                                body: params.toString()
+                              }).then(function() {
+                                                btn.textContent = 'Thank You, ' + firstName.toUpperCase() + '!';
+                                                btn.style.background = '#2d7d32';
+                                                form.reset();
+                                                setTimeout(function() {
+                                                                      closeModal();
+                                                                      btn.textContent = 'Schedule Your Free Trial Class';
+                                                                      btn.style.background = '';
+                                                                      btn.disabled = false;
+                                                }, 3000);
+                              }).catch(function() {
+                                                btn.textContent = 'Thank You, ' + firstName.toUpperCase() + '!';
+                                                btn.style.background = '#2d7d32';
+                                                form.reset();
+                                                setTimeout(function() {
+                                                                      closeModal();
+                                                                      btn.textContent = 'Schedule Your Free Trial Class';
+                                                                      btn.style.background = '';
+                                                                      btn.disabled = false;
+                                                }, 3000);
+                              });
+                });
+      </script>
+  </body>
+</html>html>
+
+      </script></label></label></p></p></h3>
+                                            </div>
+                                          </div></p></h1></li></li>
+        </header>
+  </body>
+      </style></title>
+  </head>
