@@ -849,6 +849,7 @@ img { max-width: 100%; display: block; }
   width: auto;
   display: block;
   filter: invert(1);
+  mix-blend-mode: screen;
 }
 
 .footer__columns {
