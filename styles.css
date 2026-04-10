@@ -848,7 +848,7 @@ img { max-width: 100%; display: block; }
   height: 50px;
   width: auto;
   display: block;
-  mix-blend-mode: screen;
+  filter: invert(1);
 }
 
 .footer__columns {
