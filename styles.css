@@ -848,7 +848,7 @@ img { max-width: 100%; display: block; }
   height: 50px;
   width: auto;
   display: block;
-  filter: brightness(0) invert(1);
+  mix-blend-mode: screen;
 }
 
 .footer__columns {
@@ -1437,6 +1437,15 @@ img { max-width: 100%; display: block; }
     gap: 4px;
     text-align: center;
   }
+  .top-bar__cta-wrapper {
+    position: static;
+    transform: none;
+  }
+  .top-bar__cta,
+  .top-bar__cta:visited {
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+  }
 
   .programs__grid,
   .program-detail__grid,
@@ -1445,8 +1454,9 @@ img { max-width: 100%; display: block; }
 
   .instructors-grid { grid-template-columns: 1fr 1fr; }
 
-  .hero { min-height: 75vh; }
+  .hero { min-height: 75vh; align-items: center; }
   .hero__bg img { object-position: 70% top; }
+  .hero__content { padding-top: 20px; }
   .hero__content h1, .page-hero__content h1 { font-size: 2rem; }
 
   .section-title { font-size: 1.7rem; }
