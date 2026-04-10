@@ -1446,6 +1446,7 @@ img { max-width: 100%; display: block; }
   .instructors-grid { grid-template-columns: 1fr 1fr; }
 
   .hero { min-height: 75vh; }
+  .hero__bg img { object-position: 70% top; }
   .hero__content h1, .page-hero__content h1 { font-size: 2rem; }
 
   .section-title { font-size: 1.7rem; }
