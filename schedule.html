@@ -328,11 +328,13 @@
       headers:{'Content-Type':'application/x-www-form-urlencoded'},
       body: params.toString()
     }).then(function(){
+      gtag('event', 'conversion', {'send_to': 'AW-18081811778/3gHRCN_PoZocEMKaiq5D', 'value': 1.0, 'currency': 'USD'});
       btn.textContent = 'Thank You, ' + firstName.toUpperCase() + '!';
       btn.style.background = '#2d7d32';
       form.reset();
       setTimeout(function(){ closeModal(); btn.textContent='Schedule Your Free Trial Class'; btn.style.background=''; btn.disabled=false; }, 3000);
     }).catch(function(){
+      gtag('event', 'conversion', {'send_to': 'AW-18081811778/3gHRCN_PoZocEMKaiq5D', 'value': 1.0, 'currency': 'USD'});
       btn.textContent = 'Thank You, ' + firstName.toUpperCase() + '!';
       btn.style.background = '#2d7d32';
       form.reset();
