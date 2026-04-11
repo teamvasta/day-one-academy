@@ -97,4 +97,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ========== Phone Call Click Tracking (Google Ads) ==========
+  document.querySelectorAll('a[href^="tel:"]').forEach(function(link) {
+    link.addEventListener('click', function() {
+      if (typeof gtag === 'function') {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-18081811778/b_8ZCK6joZocEMKaiq5D'
+        });
+      }
+    });
+  });
+
 });
