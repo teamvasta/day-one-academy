@@ -11,104 +11,44 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Book your free trial class at Day 1 Brazilian Jiu-Jitsu in Newton, MA. Choose your program, pick a date and time, and reserve your spot.">
-  <title>Book Your Free Trial | Day 1 Brazilian Jiu-Jitsu</title>
+  <meta name="description" content="Schedule your free trial class at Day 1 Brazilian Jiu-Jitsu in Newton, MA. Choose your program and pick a date and time.">
+  <title>Schedule Your Free Trial | Day 1 Brazilian Jiu-Jitsu</title>
   <link rel="stylesheet" href="styles.css?v=1743690600">
   <style>
-    /* ====== BOOKING PAGE STYLES ====== */
-
-    .booking-page {
+    .schedule-page {
       min-height: calc(100vh - 200px);
       background: var(--off-white);
       padding: 50px 20px 80px;
     }
 
-    .booking-container {
+    .schedule-container {
       max-width: 880px;
       margin: 0 auto;
     }
 
-    .booking-header {
+    .schedule-header {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 45px;
     }
-    .booking-header h1 {
+    .schedule-header h1 {
       font-family: var(--font-heading);
       font-size: 2rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 2px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
-    .booking-header p {
-      font-size: 0.95rem;
+    .schedule-header p {
+      font-size: 1rem;
       color: var(--medium-gray);
     }
 
-    /* Progress Steps */
-    .booking-progress {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0;
-      margin-bottom: 45px;
-    }
-    .booking-progress__step {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-family: var(--font-heading);
-      font-size: 0.78rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #bbb;
-      transition: color 0.3s ease;
-    }
-    .booking-progress__step.active {
-      color: var(--gold);
-    }
-    .booking-progress__step.completed {
-      color: var(--black);
-    }
-    .booking-progress__number {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: #ddd;
-      color: var(--white);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.85rem;
-      font-weight: 700;
-      transition: all 0.3s ease;
-      flex-shrink: 0;
-    }
-    .booking-progress__step.active .booking-progress__number {
-      background: var(--gold);
-      box-shadow: 0 4px 15px rgba(200,160,74,0.4);
-    }
-    .booking-progress__step.completed .booking-progress__number {
-      background: var(--black);
-    }
-    .booking-progress__line {
-      width: 60px;
-      height: 2px;
-      background: #ddd;
-      margin: 0 15px;
-      transition: background 0.3s ease;
-    }
-    .booking-progress__line.active {
-      background: var(--gold);
-    }
-
-    /* Step Panels */
-    .booking-step {
+    /* Step panels */
+    .schedule-step {
       display: none;
       animation: fadeInStep 0.4s ease;
     }
-    .booking-step.active {
+    .schedule-step.active {
       display: block;
     }
     @keyframes fadeInStep {
@@ -116,179 +56,69 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ====== STEP 1: YOUR INFO (Lead Capture) ====== */
-    .info-form-wrapper {
-      background: var(--white);
-      border-radius: 12px;
-      padding: 40px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-      max-width: 550px;
-      margin: 0 auto;
-    }
-
-    .info-form-intro {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    .info-form-intro h2 {
-      font-family: var(--font-heading);
-      font-size: 1.3rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 6px;
-      color: var(--black);
-    }
-    .info-form-intro p {
-      font-size: 0.9rem;
-      color: var(--medium-gray);
-    }
-
-    .booking-form {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-    .booking-form__row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    .booking-form__field label {
-      display: block;
-      font-family: var(--font-heading);
-      font-weight: 600;
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 6px;
-      color: var(--dark-gray);
-    }
-    .booking-form__field input,
-    .booking-form__field select {
-      width: 100%;
-      padding: 13px 14px;
-      border: 1.5px solid var(--light-gray);
-      border-radius: 6px;
-      font-family: var(--font-body);
-      font-size: 0.92rem;
-      color: var(--black);
-      transition: all 0.2s;
-      background: var(--white);
-    }
-    .booking-form__field input:focus,
-    .booking-form__field select:focus {
-      outline: none;
-      border-color: var(--gold);
-      box-shadow: 0 0 0 3px rgba(200,160,74,0.12);
-    }
-    .booking-form__field input::placeholder {
-      color: #bbb;
-    }
-
-    .booking-form__disclaimer {
-      font-size: 0.72rem;
-      color: var(--medium-gray);
-      line-height: 1.5;
-    }
-
-    .booking-form__submit {
-      width: 100%;
-      padding: 16px;
-      background: var(--gold);
-      color: var(--white);
-      border: none;
-      border-radius: 6px;
-      font-family: var(--font-heading);
-      font-size: 0.9rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-    .booking-form__submit:hover {
-      background: var(--gold-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(200,160,74,0.4);
-    }
-    .booking-form__submit:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      transform: none;
-      box-shadow: none;
-    }
-
-    /* ====== STEP 2: CHOOSE PROGRAM ====== */
-    .program-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
     .program-btn {
-      background: var(--white);
-      border: 2px solid var(--light-gray);
-      border-radius: 10px;
-      padding: 28px 20px;
+      background: #4A90D9;
+      border: none;
+      border-radius: 8px;
+      padding: 22px 20px;
       text-align: center;
       cursor: pointer;
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
     }
-    .program-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: var(--gold);
-      transform: scaleX(0);
-      transition: transform 0.3s ease;
-    }
     .program-btn:hover {
-      border-color: var(--gold);
+      background: #3A7BC8;
       transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(200,160,74,0.15);
-    }
-    .program-btn:hover::before {
-      transform: scaleX(1);
+      box-shadow: 0 8px 25px rgba(74,144,217,0.3);
     }
     .program-btn h3 {
       font-family: var(--font-heading);
       font-size: 1rem;
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 6px;
-      color: var(--black);
+      text-transform: none;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+      color: var(--white);
     }
     .program-btn p {
-      font-size: 0.78rem;
-      color: var(--medium-gray);
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.85);
       margin: 0;
     }
 
-    .step2-greeting {
-      text-align: center;
-      margin-bottom: 30px;
+    /* Kids row: 2 columns */
+    .program-row-kids {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 16px;
     }
-    .step2-greeting h2 {
-      font-family: var(--font-heading);
-      font-size: 1.3rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 6px;
-    }
-    .step2-greeting p {
-      font-size: 0.9rem;
-      color: var(--medium-gray);
+    /* Adults rows: 2 columns */
+    .program-row-adults {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 16px;
     }
 
-    /* ====== STEP 3: PICK DATE & TIME ====== */
+    /* Calendar Section */
+    .selected-program-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--black);
+      color: var(--white);
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-family: var(--font-heading);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 25px;
+    }
+
     .schedule-picker {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -310,10 +140,7 @@
       color: var(--black);
     }
 
-    /* Calendar */
-    .calendar {
-      user-select: none;
-    }
+    .calendar { user-select: none; }
     .calendar__nav {
       display: flex;
       justify-content: space-between;
@@ -392,7 +219,6 @@
     .calendar__day.today {
       border: 2px solid var(--gold);
     }
-
     .calendar__timezone {
       margin-top: 12px;
       font-size: 0.75rem;
@@ -408,17 +234,13 @@
     }
 
     /* Time Slots */
-    .timeslots-section {
-      min-height: 300px;
-    }
+    .timeslots-section { min-height: 300px; }
     .timeslots__date-label {
       font-size: 0.85rem;
       color: var(--medium-gray);
       margin-bottom: 18px;
     }
-    .timeslots__date-label strong {
-      color: var(--black);
-    }
+    .timeslots__date-label strong { color: var(--black); }
     .timeslots__columns {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -456,10 +278,43 @@
       transform: translateY(-1px);
     }
     .timeslot-btn.selected {
-      background: var(--gold);
-      border-color: var(--gold);
+      padding: 0;
+      border-color: #4A6CF7;
+      overflow: hidden;
+      display: flex;
+      cursor: default;
+    }
+    .timeslot-btn.selected .timeslot-time-half {
+      flex: 1;
+      background: #6B7280;
       color: var(--white);
-      box-shadow: 0 3px 10px rgba(200,160,74,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 8px;
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .timeslot-btn.selected .timeslot-select-half {
+      flex: 1;
+      background: #4A6CF7;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 8px;
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .timeslot-btn.selected .timeslot-select-half:hover {
+      background: #3B5DE7;
+    }
+    .timeslot-btn.selected .timeslot-class-name {
+      display: none;
     }
     .timeslots__empty {
       font-size: 0.85rem;
@@ -473,37 +328,6 @@
       font-weight: 400;
       color: var(--medium-gray);
       margin-top: 2px;
-    }
-    .timeslot-btn.selected .timeslot-class-name {
-      color: rgba(255,255,255,0.8);
-    }
-
-    .selected-program-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--black);
-      color: var(--white);
-      padding: 8px 18px;
-      border-radius: 20px;
-      font-family: var(--font-heading);
-      font-size: 0.78rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 25px;
-    }
-    .selected-program-label button {
-      background: none;
-      border: none;
-      color: var(--gold-light);
-      cursor: pointer;
-      font-size: 0.9rem;
-      padding: 0 0 0 5px;
-      transition: color 0.2s;
-    }
-    .selected-program-label button:hover {
-      color: var(--white);
     }
 
     /* Back button */
@@ -525,6 +349,88 @@
     }
     .booking-back-btn:hover {
       color: var(--black);
+    }
+
+    /* Info Form */
+    .info-form-card {
+      max-width: 520px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: 12px;
+      padding: 40px 35px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .info-form-card h2 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .info-form-card p {
+      text-align: center;
+      color: var(--medium-gray);
+      margin-bottom: 25px;
+      font-size: 0.9rem;
+    }
+    .info-form-card .booking-form__field {
+      margin-bottom: 18px;
+    }
+    .info-form-card .booking-form__field label {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+      color: var(--black);
+    }
+    .info-form-card .booking-form__field input,
+    .info-form-card .booking-form__field textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1.5px solid var(--light-gray);
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-family: var(--font-body);
+      transition: border-color 0.2s;
+      box-sizing: border-box;
+    }
+    .info-form-card .booking-form__field input:focus,
+    .info-form-card .booking-form__field textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+    .info-form-card .booking-form__field textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+    .info-form-card .booking-form__disclaimer {
+      font-size: 0.72rem;
+      color: var(--medium-gray);
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+    .info-form-card .booking-form__submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--gold);
+      color: var(--white);
+      border: none;
+      border-radius: 6px;
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .info-form-card .booking-form__submit:hover {
+      background: var(--gold-dark);
     }
 
     /* Confirmation */
@@ -593,28 +499,17 @@
 
     /* Responsive */
     @media (max-width: 768px) {
-      .program-grid {
+      .program-row-kids,
+      .program-row-adults {
         grid-template-columns: 1fr;
         max-width: 380px;
-        margin: 0 auto;
+        margin: 0 auto 16px;
       }
       .schedule-picker {
         grid-template-columns: 1fr;
         padding: 25px 20px;
       }
-      .booking-form__row {
-        grid-template-columns: 1fr;
-      }
-      .info-form-wrapper {
-        padding: 25px 20px;
-      }
-      .booking-progress__step span:not(.booking-progress__number) {
-        display: none;
-      }
-      .booking-progress__line {
-        width: 30px;
-      }
-      .booking-header h1 {
+      .schedule-header h1 {
         font-size: 1.5rem;
       }
     }
@@ -645,114 +540,56 @@
         <li class="navbar__dropdown"><a href="programs-adults.html">Programs</a><ul class="navbar__dropdown-menu"><li><a href="programs-kids.html">Kids</a></li><li><a href="programs-adults.html">Adults</a></li></ul></li>
         <li><a href="schedule.html">Schedule</a></li>
         <li><a href="visit.html">Visit Us</a></li>
-        <li><a href="book.html" class="btn btn-gold navbar__cta active-link">Book Free Trial</a></li>
+        <li><a href="book.html" class="btn btn-gold navbar__cta">Book Free Trial</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- BOOKING PAGE -->
-  <section class="booking-page">
-    <div class="booking-container">
+  <!-- SCHEDULE PAGE -->
+  <section class="schedule-page">
+    <div class="schedule-container">
 
-      <!-- Header -->
-      <div class="booking-header">
-        <h1>Book Your Free Trial Class</h1>
-        <p>Sign up, choose your program, and pick your class time</p>
-      </div>
-
-      <!-- Progress Bar -->
-      <div class="booking-progress" id="bookingProgress">
-        <div class="booking-progress__step active" data-step="1">
-          <span class="booking-progress__number">1</span>
-          <span>Your Info</span>
-        </div>
-        <div class="booking-progress__line" id="progressLine1"></div>
-        <div class="booking-progress__step" data-step="2">
-          <span class="booking-progress__number">2</span>
-          <span>Program</span>
-        </div>
-        <div class="booking-progress__line" id="progressLine2"></div>
-        <div class="booking-progress__step" data-step="3">
-          <span class="booking-progress__number">3</span>
-          <span>Schedule</span>
-        </div>
-      </div>
-
-      <!-- ============================================ -->
-      <!-- STEP 1: YOUR INFO (Lead Capture — FIRST) -->
-      <!-- ============================================ -->
-      <div class="booking-step active" id="step1">
-        <div class="info-form-wrapper">
-          <div class="info-form-intro">
-            <h2>Let's Get Started!</h2>
-            <p>Tell us about yourself and we'll help you find the perfect class.</p>
-          </div>
-
-          <form class="booking-form" id="leadForm">
-            <div class="booking-form__field">
-              <label>Full Name *</label>
-              <input type="text" name="fullName" id="bookFullName" placeholder="Full Name" required>
-            </div>
-
-            <div class="booking-form__field">
-              <label>Email *</label>
-              <input type="email" name="email" id="bookEmail" placeholder="Email" required>
-            </div>
-            <div class="booking-form__field">
-              <label>Phone *</label>
-              <input type="tel" name="phone" id="bookPhone" placeholder="Phone" required>
-            </div>
-
-            <p class="booking-form__disclaimer">By opting into the web form above you are providing consent for Day 1 Brazilian Jiu-Jitsu to send you periodic text messages. Standard rates may apply. You can reply HELP at anytime or learn more. You may opt-out anytime by replying STOP.</p>
-
-            <button type="submit" class="booking-form__submit" id="leadSubmitBtn">Continue</button>
-          </form>
-        </div>
-      </div>
-
-      <!-- ============================================ -->
-      <!-- STEP 2: CHOOSE PROGRAM -->
-      <!-- ============================================ -->
-      <div class="booking-step" id="step2">
-        <div class="step2-greeting">
-          <h2 id="greetingName">Great, let's pick your program!</h2>
-          <p>Click below to choose the program you're interested in</p>
+      <!-- STEP 1: Choose Program -->
+      <div class="schedule-step active" id="stepProgram">
+        <div class="schedule-header">
+          <h1>Click Below To Schedule Your Free Trial Class!</h1>
+          <p>Choose Your Program To Get Started</p>
         </div>
 
-        <div class="program-grid">
+        <div class="program-row-kids">
           <div class="program-btn" data-program="kids-7-9" data-program-label="Kids Jiu-Jitsu (Ages 7-9)">
             <h3>Kids Jiu-Jitsu</h3>
-            <p>Ages 7–9</p>
+            <p>(Ages 7–9)</p>
           </div>
           <div class="program-btn" data-program="kids-10-15" data-program-label="Kids Jiu-Jitsu (Ages 10-15)">
             <h3>Kids Jiu-Jitsu</h3>
-            <p>Ages 10–15</p>
+            <p>(Ages 10–15)</p>
           </div>
-          <div class="program-btn" data-program="adults-fundamentals" data-program-label="Adults Fundamentals">
-            <h3>Adults Fundamentals</h3>
-            <p>All Experience Levels</p>
+        </div>
+
+        <div class="program-row-adults">
+          <div class="program-btn" data-program="adults-intro" data-program-label="Adult Beginners Intro to Jiu-Jitsu">
+            <h3>Adult Beginners Intro to Jiu-Jitsu</h3>
+            <p>(No Experience)</p>
           </div>
-          <div class="program-btn" data-program="adults-intermediate" data-program-label="Adults Intermediate / Advanced">
-            <h3>Adults Intermediate / Advanced</h3>
-            <p>White Belt 2+ Stripes & Up</p>
+          <div class="program-btn" data-program="adults-fundamentals" data-program-label="Adults Beginners Jiu-Jitsu">
+            <h3>Adults Beginners Jiu-Jitsu</h3>
+            <p>(White Belt Up To 2 Stripes)</p>
           </div>
-          <div class="program-btn" data-program="adults-nogi" data-program-label="Adults NOGI">
-            <h3>Adults NOGI</h3>
-            <p>All Levels No-Gi Training</p>
-          </div>
-          <div class="program-btn" data-program="open-mat" data-program-label="Open Mat / Drill">
-            <h3>Open Mat / Drill</h3>
-            <p>Gi & NOGI — Free Training</p>
+        </div>
+
+        <div class="program-row-adults program-row-adults--single">
+          <div class="program-btn" data-program="adults-intermediate" data-program-label="Adults Intermediate & Advanced Jiu-Jitsu">
+            <h3>Adults Intermediate & Advanced Jiu-Jitsu</h3>
+            <p>(White Belt 2 Stripes and Up)</p>
           </div>
         </div>
       </div>
 
-      <!-- ============================================ -->
-      <!-- STEP 3: PICK DATE & TIME -->
-      <!-- ============================================ -->
-      <div class="booking-step" id="step3">
-        <button class="booking-back-btn" id="backToStep1">← Back to Your Info</button>
-        <div class="selected-program-label" id="selectedProgramLabel">
+      <!-- STEP 2: Calendar & Time Slots -->
+      <div class="schedule-step" id="stepCalendar">
+        <button class="booking-back-btn" id="backToPrograms">← Change Program</button>
+        <div class="selected-program-label">
           <span id="selectedProgramText"></span>
         </div>
 
@@ -778,26 +615,49 @@
             <div class="timeslots__date-label" id="timeslotsDateLabel">
               Select a date to see available times
             </div>
-            <div id="timeslotsContainer">
-              <!-- Time slots will be rendered here -->
-            </div>
+            <div id="timeslotsContainer"></div>
           </div>
         </div>
       </div>
 
-      <!-- ============================================ -->
+      <!-- STEP 3: YOUR INFO -->
+      <div class="schedule-step" id="stepInfo">
+        <button class="booking-back-btn" id="backToCalendar">← Back to Schedule</button>
+        <div class="info-form-card">
+          <h2>Almost There!</h2>
+          <p>Fill in your details to confirm your booking.</p>
+          <form id="infoForm" class="booking-form">
+            <div class="booking-form__field">
+              <label>Full Name *</label>
+              <input type="text" name="fullName" id="infoFullName" placeholder="Full Name" required>
+            </div>
+            <div class="booking-form__field">
+              <label>Email *</label>
+              <input type="email" name="email" id="infoEmail" placeholder="Email" required>
+            </div>
+            <div class="booking-form__field">
+              <label>Phone *</label>
+              <input type="tel" name="phone" id="infoPhone" placeholder="Phone" required>
+            </div>
+            <div class="booking-form__field">
+              <label>Additional Information</label>
+              <textarea name="additionalInfo" id="infoAdditional" placeholder="Anything else you'd like us to know?" rows="4"></textarea>
+            </div>
+            <p class="booking-form__disclaimer">By submitting this form you consent to receive periodic text messages from Day 1 Brazilian Jiu-Jitsu. Standard rates may apply. Reply STOP to opt out.</p>
+            <button type="submit" class="booking-form__submit" id="infoSubmitBtn">Confirm My Booking</button>
+          </form>
+        </div>
+      </div>
+
       <!-- CONFIRMATION -->
-      <!-- ============================================ -->
-      <div class="booking-step" id="stepConfirmation">
+      <div class="schedule-step" id="stepConfirmation">
         <div class="booking-confirmation">
           <div class="booking-confirmation__icon">
             <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
           </div>
           <h2 id="confirmTitle">You're All Set!</h2>
-          <p>We've received your booking request. Our team will confirm your trial class shortly.</p>
-          <div class="booking-confirmation__details" id="confirmationDetails">
-            <!-- Filled dynamically -->
-          </div>
+          <p>Your free trial class has been scheduled. We'll see you on the mats! 🥋</p>
+          <div class="booking-confirmation__details" id="confirmationDetails"></div>
         </div>
       </div>
 
@@ -836,49 +696,63 @@
   <script>
   (function(){
     // ============================
-    // SCHEDULE DATA (from schedule.html)
+    // SCHEDULE DATA
     // ============================
     var SCHEDULE = {
       0: [ // Sunday
-        { time: '10:00 AM', className: 'Fundamentals', programs: ['adults-fundamentals'] },
-        { time: '11:00 AM', className: 'Open Mat / Drill (Gi & NOGI)', programs: ['open-mat'] }
+        { time: '9:00 AM', className: 'Beginners Intro', programs: ['adults-intro'] },
+        { time: '10:00 AM', className: 'Fundamentals', programs: ['adults-fundamentals', 'adults-intermediate'] },
+        { time: '11:00 AM', className: 'Open Mat / Drill (Gi & NOGI)', programs: ['adults-intermediate'] }
       ],
       1: [ // Monday
         { time: '6:15 AM', className: 'All Levels', programs: ['adults-fundamentals', 'adults-intermediate'] },
+        { time: '11:00 AM', className: 'Beginners Intro', programs: ['adults-intro'] },
         { time: '12:00 PM', className: 'Intermediate / Advanced', programs: ['adults-intermediate'] },
         { time: '5:00 PM', className: 'Kids (10-15 Yrs)', programs: ['kids-10-15'] },
         { time: '6:00 PM', className: 'Intermediate / Advanced', programs: ['adults-intermediate'] },
-        { time: '7:00 PM', className: 'Fundamentals', programs: ['adults-fundamentals'] }
+        { time: '6:00 PM', className: 'Beginners Intro', programs: ['adults-intro'] },
+        { time: '7:00 PM', className: 'Fundamentals', programs: ['adults-fundamentals', 'adults-intermediate'] },
+        { time: '7:15 PM', className: 'Beginners Intro', programs: ['adults-intro'] }
       ],
       2: [ // Tuesday
-        { time: '12:00 PM', className: 'Fundamentals', programs: ['adults-fundamentals'] },
+        { time: '12:00 PM', className: 'Fundamentals', programs: ['adults-fundamentals', 'adults-intermediate'] },
+        { time: '4:00 PM', className: 'Beginners Intro', programs: ['adults-intro'] },
         { time: '5:00 PM', className: 'Kids (7-9 Yrs)', programs: ['kids-7-9'] },
-        { time: '6:00 PM', className: 'Fundamentals', programs: ['adults-fundamentals'] },
-        { time: '7:00 PM', className: 'NOGI Intermediate / Advanced', programs: ['adults-nogi', 'adults-intermediate'] }
+        { time: '6:00 PM', className: 'Fundamentals', programs: ['adults-fundamentals', 'adults-intermediate'] },
+        { time: '6:00 PM', className: 'Beginners Intro', programs: ['adults-intro'] },
+        { time: '7:00 PM', className: 'NOGI Intermediate / Advanced', programs: ['adults-intermediate'] }
       ],
       3: [ // Wednesday
         { time: '6:15 AM', className: 'All Levels', programs: ['adults-fundamentals', 'adults-intermediate'] },
-        { time: '12:00 PM', className: 'NOGI Intermediate / Advanced', programs: ['adults-nogi', 'adults-intermediate'] },
+        { time: '11:00 AM', className: 'Beginners Intro', programs: ['adults-intro'] },
+        { time: '12:00 PM', className: 'NOGI Intermediate / Advanced', programs: ['adults-intermediate'] },
+        { time: '4:00 PM', className: 'Beginners Intro', programs: ['adults-intro'] },
         { time: '5:00 PM', className: 'Kids (10-15 Yrs)', programs: ['kids-10-15'] },
         { time: '6:00 PM', className: 'Intermediate / Advanced', programs: ['adults-intermediate'] },
-        { time: '7:00 PM', className: 'Fundamentals', programs: ['adults-fundamentals'] }
+        { time: '7:00 PM', className: 'Fundamentals', programs: ['adults-fundamentals', 'adults-intermediate'] },
+        { time: '7:15 PM', className: 'Beginners Intro', programs: ['adults-intro'] }
       ],
       4: [ // Thursday
-        { time: '12:00 PM', className: 'Fundamentals', programs: ['adults-fundamentals'] },
+        { time: '12:00 PM', className: 'Fundamentals', programs: ['adults-fundamentals', 'adults-intermediate'] },
+        { time: '4:00 PM', className: 'Beginners Intro', programs: ['adults-intro'] },
         { time: '5:00 PM', className: 'Kids (7-9 Yrs)', programs: ['kids-7-9'] },
-        { time: '6:00 PM', className: 'Fundamentals', programs: ['adults-fundamentals'] },
-        { time: '7:00 PM', className: 'NOGI Intermediate / Advanced', programs: ['adults-nogi', 'adults-intermediate'] }
+        { time: '6:00 PM', className: 'Fundamentals', programs: ['adults-fundamentals', 'adults-intermediate'] },
+        { time: '6:00 PM', className: 'Beginners Intro', programs: ['adults-intro'] },
+        { time: '7:00 PM', className: 'NOGI Intermediate / Advanced', programs: ['adults-intermediate'] }
       ],
       5: [ // Friday
         { time: '6:15 AM', className: 'NOGI All Levels', programs: ['adults-fundamentals', 'adults-intermediate'] },
+        { time: '11:00 AM', className: 'Beginners Intro', programs: ['adults-intro'] },
         { time: '12:00 PM', className: 'Intermediate / Advanced', programs: ['adults-intermediate'] },
-        { time: '6:00 PM', className: 'Fundamentals', programs: ['adults-fundamentals'] },
-        { time: '7:00 PM', className: 'Open Mat / Drill (Gi & NOGI)', programs: ['open-mat'] }
+        { time: '5:00 PM', className: 'Beginners Intro', programs: ['adults-intro'] },
+        { time: '6:00 PM', className: 'Fundamentals', programs: ['adults-fundamentals', 'adults-intermediate'] },
+        { time: '7:00 PM', className: 'Open Mat / Drill (Gi & NOGI)', programs: ['adults-intermediate'] }
       ],
       6: [ // Saturday
         { time: '10:00 AM', className: 'Kids (9-15 Yrs)', programs: ['kids-7-9', 'kids-10-15'] },
-        { time: '11:00 AM', className: 'Fundamentals', programs: ['adults-fundamentals'] },
-        { time: '12:00 PM', className: 'Open Mat / Drill (Gi & NOGI)', programs: ['open-mat'] }
+        { time: '11:00 AM', className: 'Fundamentals', programs: ['adults-fundamentals', 'adults-intermediate'] },
+        { time: '11:00 AM', className: 'Beginners Intro', programs: ['adults-intro'] },
+        { time: '12:00 PM', className: 'Open Mat / Drill (Gi & NOGI)', programs: ['adults-intermediate'] }
       ]
     };
 
@@ -886,139 +760,87 @@
     var MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June',
                        'July', 'August', 'September', 'October', 'November', 'December'];
 
+    // Read user info from URL params (passed from book.html)
+    var urlParams = new URLSearchParams(window.location.search);
+    var userInfo = {
+      fullName: urlParams.get('fullName') || '',
+      email: urlParams.get('email') || '',
+      phone: urlParams.get('phone') || ''
+    };
+
     // State
     var state = {
-      currentStep: 1,
-      // Lead info (captured in step 1)
-      fullName: '',
-      email: '',
-      phone: '',
-      // Program (step 2)
       selectedProgram: null,
       selectedProgramLabel: '',
-      // Schedule (step 3)
       calMonth: new Date().getMonth(),
       calYear: new Date().getFullYear(),
       selectedDate: null,
       selectedTime: null,
-      selectedClassName: '',
-      // Track if lead was already sent
-      leadSent: false
+      selectedClassName: ''
     };
 
     // Elements
-    var steps = {
-      1: document.getElementById('step1'),
-      2: document.getElementById('step2'),
-      3: document.getElementById('step3'),
-      confirm: document.getElementById('stepConfirmation')
-    };
+    var stepProgram = document.getElementById('stepProgram');
+    var stepCalendar = document.getElementById('stepCalendar');
+    var stepInfo = document.getElementById('stepInfo');
+    var stepConfirmation = document.getElementById('stepConfirmation');
 
-    // ============================
-    // NAVIGATION
-    // ============================
-    function goToStep(n) {
-      Object.values(steps).forEach(function(el){ el.classList.remove('active'); });
-
-      if (n === 'confirm') {
-        steps.confirm.classList.add('active');
-        updateProgress(4); // All steps completed
-      } else {
-        steps[n].classList.add('active');
-        updateProgress(n);
-      }
-      state.currentStep = n;
+    function showStep(step) {
+      stepProgram.classList.remove('active');
+      stepCalendar.classList.remove('active');
+      stepInfo.classList.remove('active');
+      stepConfirmation.classList.remove('active');
+      step.classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    function updateProgress(step) {
-      var progressSteps = document.querySelectorAll('.booking-progress__step');
-
-      progressSteps.forEach(function(el, i) {
-        var stepNum = i + 1;
-        el.classList.remove('active', 'completed');
-        if (stepNum < step) el.classList.add('completed');
-        else if (stepNum === step) el.classList.add('active');
-      });
-
-      var line1 = document.getElementById('progressLine1');
-      if (line1) line1.classList.toggle('active', step > 1);
-      var line2 = document.getElementById('progressLine2');
-      if (line2) line2.classList.toggle('active', step > 2);
-    }
-
     // ============================
-    // STEP 1: Lead Capture Form
-    // ============================
-    document.getElementById('leadForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      var form = this;
-      var btn = document.getElementById('leadSubmitBtn');
-
-      // Capture lead info
-      var fullName = form.fullName.value;
-      var email = form.email.value;
-      var phone = form.phone.value;
-
-      btn.disabled = true;
-      btn.textContent = 'Loading...';
-
-      // Fire conversion event on lead capture (the most important moment)
-      if (typeof gtag === 'function') {
-        gtag('event', 'conversion', {'send_to': 'AW-18081811778/3gHRCN_PoZocEMKaiq5D', 'value': 1.0, 'currency': 'USD'});
-      }
-
-      // Send lead to Google Sheets, then redirect
-      var sheetParams = new URLSearchParams();
-      sheetParams.append('fullName', fullName);
-      sheetParams.append('email', email);
-      sheetParams.append('phone', phone);
-      sheetParams.append('program', '');
-
-      var redirectParams = new URLSearchParams();
-      redirectParams.set('fullName', fullName);
-      redirectParams.set('email', email);
-      redirectParams.set('phone', phone);
-      var redirectUrl = 'choose-program.html?' + redirectParams.toString();
-
-      // Use XMLHttpRequest for reliable delivery before redirect
-      var xhr = new XMLHttpRequest();
-      xhr.open('POST', 'https://script.google.com/macros/s/AKfycbzz_N2-TcQL50iuJWYixxm7ljJuP1WnpX621yx6gJ6YHITUEH579ZEnEv-24F1HPpbM/exec');
-      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-      xhr.onloadend = function() {
-        window.location.href = redirectUrl;
-      };
-      // Redirect after 3 seconds even if request hasn't completed
-      setTimeout(function() {
-        window.location.href = redirectUrl;
-      }, 3000);
-      xhr.send(sheetParams.toString());
-    });
-
-
-    // ============================
-    // STEP 2: Program Selection
+    // STEP 1: Program Selection
     // ============================
     document.querySelectorAll('.program-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
         state.selectedProgram = this.dataset.program;
         state.selectedProgramLabel = this.dataset.programLabel;
-        state.selectedDate = null;
         state.selectedTime = null;
+
+        // Auto-select today if it has available slots, otherwise find next available
+        var today = new Date();
+        today.setHours(0,0,0,0);
+        var slots = getAvailableSlots(today.getDay());
+        if (slots.length > 0) {
+          state.selectedDate = today;
+        } else {
+          state.selectedDate = null;
+          // Find next available date within 30 days
+          for (var i = 1; i <= 30; i++) {
+            var next = new Date(today);
+            next.setDate(next.getDate() + i);
+            if (getAvailableSlots(next.getDay()).length > 0) {
+              state.selectedDate = next;
+              state.calMonth = next.getMonth();
+              state.calYear = next.getFullYear();
+              break;
+            }
+          }
+        }
 
         document.getElementById('selectedProgramText').textContent = state.selectedProgramLabel;
 
         renderCalendar();
-        goToStep(3);
+        showStep(stepCalendar);
       });
     });
 
     // Back buttons
-    document.getElementById('backToStep1').addEventListener('click', function() { goToStep(1); });
+    document.getElementById('backToPrograms').addEventListener('click', function() {
+      showStep(stepProgram);
+    });
+    document.getElementById('backToCalendar').addEventListener('click', function() {
+      showStep(stepCalendar);
+    });
 
     // ============================
-    // STEP 3: Calendar & Time Slots
+    // STEP 2: Calendar & Time Slots
     // ============================
     var calGrid = document.getElementById('calGrid');
     var calMonth = document.getElementById('calMonth');
@@ -1106,7 +928,7 @@
       var monthName = MONTH_NAMES[state.selectedDate.getMonth()];
       var dateStr = dayName + ', ' + monthName + ' ' + state.selectedDate.getDate() + ', ' + state.selectedDate.getFullYear();
 
-      label.innerHTML = 'Available Starting times for <strong>' + dateStr + '</strong>';
+      label.innerHTML = 'Available starting times for <strong>' + dateStr + '</strong>';
 
       var slots = getAvailableSlots(dow);
 
@@ -1120,15 +942,23 @@
 
       var html = '<div class="timeslots__columns">';
 
+      function renderSlotBtn(slot) {
+        var isSelected = state.selectedTime === slot.time && state.selectedClassName === slot.className;
+        if (isSelected) {
+          return '<div class="timeslot-btn selected" data-time="' + slot.time + '" data-classname="' + slot.className + '">' +
+                 '<span class="timeslot-time-half">' + slot.time + '</span>' +
+                 '<span class="timeslot-select-half" data-time="' + slot.time + '" data-classname="' + slot.className + '">Select</span>' +
+                 '<span class="timeslot-class-name">' + slot.className + '</span></div>';
+        }
+        return '<button class="timeslot-btn" data-time="' + slot.time + '" data-classname="' + slot.className + '">' +
+               slot.time + '<span class="timeslot-class-name">' + slot.className + '</span></button>';
+      }
+
       html += '<div><div class="timeslots__col-title">AM</div>';
       if (amSlots.length === 0) {
         html += '<div class="timeslots__empty">No Slots available</div>';
       } else {
-        amSlots.forEach(function(slot) {
-          var isSelected = state.selectedTime === slot.time;
-          html += '<button class="timeslot-btn' + (isSelected ? ' selected' : '') + '" data-time="' + slot.time + '" data-classname="' + slot.className + '">' +
-                  slot.time + '<span class="timeslot-class-name">' + slot.className + '</span></button>';
-        });
+        amSlots.forEach(function(slot) { html += renderSlotBtn(slot); });
       }
       html += '</div>';
 
@@ -1136,49 +966,77 @@
       if (pmSlots.length === 0) {
         html += '<div class="timeslots__empty">No Slots available</div>';
       } else {
-        pmSlots.forEach(function(slot) {
-          var isSelected = state.selectedTime === slot.time;
-          html += '<button class="timeslot-btn' + (isSelected ? ' selected' : '') + '" data-time="' + slot.time + '" data-classname="' + slot.className + '">' +
-                  slot.time + '<span class="timeslot-class-name">' + slot.className + '</span></button>';
-        });
+        pmSlots.forEach(function(slot) { html += renderSlotBtn(slot); });
       }
       html += '</div></div>';
 
       container.innerHTML = html;
 
-      // When they select a time, go straight to confirmation
-      container.querySelectorAll('.timeslot-btn').forEach(function(btn) {
+      // First click: highlight the slot (show split button)
+      container.querySelectorAll('.timeslot-btn:not(.selected)').forEach(function(btn) {
         btn.addEventListener('click', function() {
           state.selectedTime = this.dataset.time;
           state.selectedClassName = this.dataset.classname;
           renderTimeslots();
+        });
+      });
 
-          // Short delay then submit & show confirmation
-          setTimeout(function() {
-            submitFinalBooking();
-          }, 400);
+      // Second click: "Select" button goes to info form
+      container.querySelectorAll('.timeslot-select-half').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          // Pre-fill form if user info came from book.html
+          if (userInfo.fullName) document.getElementById('infoFullName').value = userInfo.fullName;
+          if (userInfo.email) document.getElementById('infoEmail').value = userInfo.email;
+          if (userInfo.phone) document.getElementById('infoPhone').value = userInfo.phone;
+          showStep(stepInfo);
         });
       });
     }
 
     // ============================
-    // FINAL SUBMISSION & CONFIRMATION
+    // STEP 3: Info Form
     // ============================
-    function submitFinalBooking() {
+    document.getElementById('infoForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      var btn = document.getElementById('infoSubmitBtn');
+      btn.disabled = true;
+      btn.textContent = 'Submitting...';
+
+      // Update userInfo from form
+      userInfo.fullName = document.getElementById('infoFullName').value.trim();
+      userInfo.email = document.getElementById('infoEmail').value.trim();
+      userInfo.phone = document.getElementById('infoPhone').value.trim();
+      userInfo.additionalInfo = document.getElementById('infoAdditional').value.trim();
+
+      // Fire conversion event
+      if (typeof gtag === 'function') {
+        gtag('event', 'conversion', {'send_to': 'AW-18081811778/3gHRCN_PoZocEMKaiq5D', 'value': 1.0, 'currency': 'USD'});
+      }
+
+      submitBooking();
+    });
+
+    // ============================
+    // SUBMISSION & CONFIRMATION
+    // ============================
+    function submitBooking() {
       var dow = state.selectedDate.getDay();
       var dayName = DAY_NAMES[dow];
       var monthName = MONTH_NAMES[state.selectedDate.getMonth()];
       var dateStr = dayName + ', ' + monthName + ' ' + state.selectedDate.getDate() + ', ' + state.selectedDate.getFullYear();
 
-      // Send full booking details (including schedule) to Google Sheets
+      // Send booking to Google Sheets
       var params = new URLSearchParams();
-      params.append('fullName', state.fullName);
-      params.append('email', state.email);
-      params.append('phone', state.phone);
+      params.append('fullName', userInfo.fullName);
+      params.append('email', userInfo.email);
+      params.append('phone', userInfo.phone);
+      params.append('additionalInfo', userInfo.additionalInfo || '');
       params.append('program', state.selectedProgramLabel);
       params.append('selectedDate', dateStr);
       params.append('selectedTime', state.selectedTime);
       params.append('selectedClass', state.selectedClassName);
+      params.append('source', 'choose-program');
 
       fetch('https://script.google.com/macros/s/AKfycbzz_N2-TcQL50iuJWYixxm7ljJuP1WnpX621yx6gJ6YHITUEH579ZEnEv-24F1HPpbM/exec', {
         method: 'POST',
@@ -1193,24 +1051,25 @@
     }
 
     function showConfirmation(dateStr) {
-      var displayName = state.fullName.split(' ')[0];
+      var displayName = userInfo.fullName.split(' ')[0];
       document.getElementById('confirmTitle').textContent = 'Thank You, ' + displayName + '!';
 
+      var btn = document.getElementById('infoSubmitBtn');
+      btn.disabled = false;
+      btn.textContent = 'Confirm My Booking';
+
       var html = '';
-      html += '<div class="booking-confirmation__detail-row"><span class="label">Name</span><span class="value">' + state.fullName + '</span></div>';
-      html += '<div class="booking-confirmation__detail-row"><span class="label">Email</span><span class="value">' + state.email + '</span></div>';
-      html += '<div class="booking-confirmation__detail-row"><span class="label">Phone</span><span class="value">' + state.phone + '</span></div>';
+      html += '<div class="booking-confirmation__detail-row"><span class="label">Name</span><span class="value">' + userInfo.fullName + '</span></div>';
       html += '<div class="booking-confirmation__detail-row"><span class="label">Program</span><span class="value">' + state.selectedProgramLabel + '</span></div>';
       html += '<div class="booking-confirmation__detail-row"><span class="label">Date</span><span class="value">' + dateStr + '</span></div>';
       html += '<div class="booking-confirmation__detail-row"><span class="label">Time</span><span class="value">' + state.selectedTime + '</span></div>';
       html += '<div class="booking-confirmation__detail-row"><span class="label">Class</span><span class="value">' + state.selectedClassName + '</span></div>';
 
       document.getElementById('confirmationDetails').innerHTML = html;
-      goToStep('confirm');
+      showStep(stepConfirmation);
     }
 
   })();
   </script>
-
 </body>
 </html>

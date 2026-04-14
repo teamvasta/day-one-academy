@@ -69,8 +69,7 @@
   // ── STATE ──
   var state = {
     step: 1,
-    firstName: '',
-    lastName: '',
+    fullName: '',
     email: '',
     phone: '',
     program: '',
@@ -120,15 +119,9 @@
         '<h3 class="trial-step__title">Your Information</h3>' +
         '<p class="trial-step__subtitle">Tell us about yourself so we can get in touch.</p>' +
         '<form id="trialFormStep1" class="trial-form">' +
-          '<div class="trial-form__row">' +
-            '<div class="trial-form__field">' +
-              '<label for="trial-firstName">First Name *</label>' +
-              '<input type="text" id="trial-firstName" name="firstName" placeholder="First Name" value="' + escHtml(state.firstName) + '" required>' +
-            '</div>' +
-            '<div class="trial-form__field">' +
-              '<label for="trial-lastName">Last Name</label>' +
-              '<input type="text" id="trial-lastName" name="lastName" placeholder="Last Name" value="' + escHtml(state.lastName) + '">' +
-            '</div>' +
+          '<div class="trial-form__field">' +
+            '<label for="trial-fullName">Full Name *</label>' +
+            '<input type="text" id="trial-fullName" name="fullName" placeholder="Full Name" value="' + escHtml(state.fullName) + '" required>' +
           '</div>' +
           '<div class="trial-form__field">' +
             '<label for="trial-email">Email *</label>' +
@@ -295,7 +288,7 @@
         '<div class="trial-summary">' +
           '<div class="trial-summary__section">' +
             '<h4>Your Information</h4>' +
-            '<p><strong>' + escHtml(state.firstName) + ' ' + escHtml(state.lastName) + '</strong></p>' +
+            '<p><strong>' + escHtml(state.fullName) + '</strong></p>' +
             '<p>' + escHtml(state.email) + '</p>' +
             '<p>' + escHtml(state.phone) + '</p>' +
           '</div>' +
@@ -328,7 +321,7 @@
         '<div class="trial-summary">' +
           '<div class="trial-summary__section">' +
             '<h4>Your Information</h4>' +
-            '<p><strong>' + escHtml(state.firstName) + ' ' + escHtml(state.lastName) + '</strong></p>' +
+            '<p><strong>' + escHtml(state.fullName) + '</strong></p>' +
             '<p>' + escHtml(state.email) + '</p>' +
             '<p>' + escHtml(state.phone) + '</p>' +
           '</div>' +
@@ -351,7 +344,7 @@
       '<div class="trial-step trial-success">' +
         '<div class="trial-success__icon">✓</div>' +
         '<h3 class="trial-step__title">You\'re All Set!</h3>' +
-        '<p class="trial-step__subtitle">Thank you, <strong>' + escHtml(state.firstName) + '</strong>! Your free trial class has been booked.</p>' +
+        '<p class="trial-step__subtitle">Thank you, <strong>' + escHtml(state.fullName.split(' ')[0]) + '</strong>! Your free trial class has been booked.</p>' +
         (state.selectedSlot ? (
           '<div class="trial-success__details">' +
             '<p><strong>' + (PROGRAM_LABELS[state.program] || '') + '</strong></p>' +
@@ -455,8 +448,7 @@
     if (form) {
       form.addEventListener('submit', function (e) {
         e.preventDefault();
-        state.firstName = document.getElementById('trial-firstName').value.trim();
-        state.lastName = document.getElementById('trial-lastName').value.trim();
+        state.fullName = document.getElementById('trial-fullName').value.trim();
         state.email = document.getElementById('trial-email').value.trim();
         state.phone = document.getElementById('trial-phone').value.trim();
         state.step = 2;
@@ -614,8 +606,7 @@
     }
 
     var params = new URLSearchParams();
-    params.append('firstName', state.firstName);
-    params.append('lastName', state.lastName);
+    params.append('fullName', state.fullName);
     params.append('email', state.email);
     params.append('phone', state.phone);
     params.append('program', PROGRAM_LABELS[state.program] || state.program);
@@ -650,8 +641,7 @@
     }
     // Reset state for new booking
     state.step = 1;
-    state.firstName = '';
-    state.lastName = '';
+    state.fullName = '';
     state.email = '';
     state.phone = '';
     state.program = '';
@@ -711,8 +701,7 @@
       inlineForm.addEventListener('submit', function (e) {
         e.preventDefault();
         // Pre-fill state from inline form
-        state.firstName = (inlineForm.firstName && inlineForm.firstName.value) || '';
-        state.lastName = (inlineForm.lastName && inlineForm.lastName.value) || '';
+        state.fullName = (inlineForm.fullName && inlineForm.fullName.value) || '';
         state.email = (inlineForm.email && inlineForm.email.value) || '';
         state.phone = (inlineForm.phone && inlineForm.phone.value) || '';
 
@@ -726,7 +715,7 @@
         }
 
         // If we have contact info, go straight to step 2
-        if (state.firstName && state.email && state.phone) {
+        if (state.fullName && state.email && state.phone) {
           state.step = 2;
         } else {
           state.step = 1;
