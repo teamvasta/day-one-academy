@@ -40,7 +40,7 @@
   <div class="top-bar">
     <div class="container">
       <a href="mailto:info@day1jiujitsunewton.com">INFO@DAY1JIUJITSUNEWTON.COM</a>
-      <div class="top-bar__cta-wrapper"><a href="#contact-form" class="top-bar__cta">Book Free Trial</a></div>
+      <div class="top-bar__cta-wrapper"><a href="book.html" class="top-bar__cta">Book Free Trial</a></div>
       <a href="tel:8576055637">857-605-5637</a>
     </div>
   </div>
@@ -59,7 +59,7 @@
         <li class="navbar__dropdown"><a href="programs-adults.html">Programs</a><ul class="navbar__dropdown-menu"><li><a href="programs-kids.html">Kids</a></li><li><a href="programs-adults.html">Adults</a></li></ul></li>
         <li><a href="schedule.html">Schedule</a></li>
         <li><a href="visit.html">Visit Us</a></li>
-        <li><a href="#contact-form" class="btn btn-gold navbar__cta">Book Free Trial</a></li>
+        <li><a href="book.html" class="btn btn-gold navbar__cta">Book Free Trial</a></li>
       </ul>
     </div>
   </nav>
@@ -76,7 +76,7 @@
         <p class="hero__statement">Every journey starts somewhere</p>
         <p class="hero__day1">This is your Day 1.</p>
         <div class="hero__cta">
-          <a href="#contact-form" class="btn btn-gold">Start Your Free Trial</a>
+          <a href="book.html" class="btn btn-gold">Start Your Free Trial</a>
         </div>
       </div>
     </div>
@@ -208,7 +208,7 @@
   <section class="cta-section fade-in">
     <div class="container">
       <h2>Your Day 1 Starts Here</h2>
-      <a href="#contact-form" class="btn btn-gold">Book Your Free Trial Class</a>
+      <a href="book.html" class="btn btn-gold">Book Your Free Trial Class</a>
     </div>
   </section>
 
@@ -327,7 +327,7 @@
   closeBtn.addEventListener('click', closeModal);
   overlay.addEventListener('click', function(e){ if(e.target === overlay) closeModal(); });
   document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeModal(); });
-  document.querySelectorAll('a[href="#contact-form"], a[href="contact.html#contact-form"]').forEach(function(link){
+  document.querySelectorAll('a[href="book.html"], a[href="book.html"]').forEach(function(link){
     if(link.textContent.toLowerCase().indexOf('waiver') === -1){
       link.addEventListener('click', openModal);
     }
