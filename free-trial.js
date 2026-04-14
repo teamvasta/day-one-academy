@@ -695,42 +695,8 @@
       }
     }
 
-    // Also handle the inline form submit on contact page / home page
-    var inlineForm = document.getElementById('contact-form');
-    if (inlineForm && inlineForm.tagName === 'FORM') {
-      inlineForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-        // Pre-fill state from inline form
-        state.fullName = (inlineForm.fullName && inlineForm.fullName.value) || '';
-        state.email = (inlineForm.email && inlineForm.email.value) || '';
-        state.phone = (inlineForm.phone && inlineForm.phone.value) || '';
-
-        var programSelect = inlineForm.querySelector('select[name="program"]');
-        if (programSelect && programSelect.value) {
-          state.program = programSelect.value;
-        }
-
-        if (!overlay) {
-          overlay = buildModal();
-        }
-
-        // If we have contact info, go straight to step 2
-        if (state.fullName && state.email && state.phone) {
-          state.step = 2;
-        } else {
-          state.step = 1;
-        }
-
-        overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-        setTimeout(function () { overlay.classList.add('visible'); }, 10);
-        renderCurrentStep();
-
-        var closeBtn = document.getElementById('trialModalClose');
-        if (closeBtn) closeBtn.onclick = closeModal;
-        overlay.onclick = function (ev) { if (ev.target === overlay) closeModal(); };
-      });
-    }
+    // Inline contact-form is now handled by each page's own script (redirects to choose-program.html)
+    // Do not intercept it here
   });
 
 })();

@@ -75,27 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ========== Contact Form Handler ==========
-  const contactForm = document.getElementById('contact-form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const name = new FormData(this).get('firstName') || 'there';
-      const btn = this.querySelector('button[type="submit"]');
-      const originalText = btn.textContent;
-      btn.textContent = `Thank you, ${name}! We'll be in touch.`;
-      btn.style.backgroundColor = '#2d7a4f';
-      btn.style.borderColor = '#2d7a4f';
-      btn.disabled = true;
-      setTimeout(() => {
-        btn.textContent = originalText;
-        btn.style.backgroundColor = '';
-        btn.style.borderColor = '';
-        btn.disabled = false;
-        contactForm.reset();
-      }, 4000);
-    });
-  }
+  // Contact form is now handled by each page's inline script (redirects to choose-program.html)
 
   // ========== Phone Call Click Tracking (Google Ads) ==========
   document.querySelectorAll('a[href^="tel:"]').forEach(function(link) {
