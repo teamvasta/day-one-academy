@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18081811778"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18081811778');
+  </script>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '864845296057926');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=864845296057926&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Schedule your free trial class at Day 1 Brazilian Jiu-Jitsu in Newton, MA. Choose your program and pick a date and time.">
+  <title>Schedule Your Free Trial | Day 1 Brazilian Jiu-Jitsu</title>
+  <link rel="stylesheet" href="styles.css?v=1743690600">
+  <style>
+    .schedule-page {
+      min-height: calc(100vh - 200px);
+      background: var(--off-white);
+      padding: 50px 20px 80px;
+    }
+
+    .schedule-container {
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    .schedule-header {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+    .schedule-header h1 {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+    .schedule-header p {
+      font-size: 1rem;
+      color: var(--medium-gray);
+    }
+
+    /* Step panels */
+    .schedule-step {
+      display: none;
+      animation: fadeInStep 0.4s ease;
+    }
+    .schedule-step.active {
+      display: block;
+    }
+    @keyframes fadeInStep {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .program-btn {
+      background: #4A90D9;
+      border: none;
+      border-radius: 8px;
+      padding: 22px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .program-btn:hover {
+      background: #3A7BC8;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(74,144,217,0.3);
+    }
+    .program-btn h3 {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: none;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+      color: var(--white);
+    }
+    .program-btn p {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.85);
+      margin: 0;
+    }
+
+    /* Kids row: 2 columns */
+    .program-row-kids {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    /* Adults rows: 2 columns */
+    .program-row-adults {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    /* Calendar Section */
+    .selected-program-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--black);
+      color: var(--white);
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-family: var(--font-heading);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 25px;
+    }
+
+    .schedule-picker {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+      background: var(--white);
+      border-radius: 12px;
+      padding: 35px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+
+    .calendar-section h3,
+    .timeslots-section h3 {
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 20px;
+      color: var(--black);
+    }
+
+    .calendar { user-select: none; }
+    .calendar__nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+    .calendar__nav-btn {
+      background: none;
+      border: 1px solid var(--light-gray);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1rem;
+      color: var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+    .calendar__nav-btn:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--white);
+    }
+    .calendar__month {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .calendar__grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+      text-align: center;
+    }
+    .calendar__day-header {
+      font-family: var(--font-heading);
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--medium-gray);
+      padding: 8px 0;
+    }
+    .calendar__day {
+      padding: 10px 0;
+      border-radius: 50%;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: default;
+      color: #ccc;
+      transition: all 0.2s;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .calendar__day.available {
+      color: var(--black);
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .calendar__day.available:hover {
+      background: rgba(200,160,74,0.15);
+      color: var(--gold-dark);
+    }
+    .calendar__day.selected {
+      background: var(--gold) !important;
+      color: var(--white) !important;
+      font-weight: 700;
+      box-shadow: 0 3px 10px rgba(200,160,74,0.35);
+    }
+    .calendar__day.today {
+      border: 2px solid var(--gold);
+    }
+    .calendar__timezone {
+      margin-top: 12px;
+      font-size: 0.75rem;
+      color: var(--medium-gray);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .calendar__timezone svg {
+      width: 14px;
+      height: 14px;
+      fill: var(--medium-gray);
+    }
+
+    /* Time Slots */
+    .timeslots-section { min-height: 300px; }
+    .timeslots__date-label {
+      font-size: 0.85rem;
+      color: var(--medium-gray);
+      margin-bottom: 18px;
+    }
+    .timeslots__date-label strong { color: var(--black); }
+    .timeslots__columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .timeslots__col-title {
+      font-family: var(--font-heading);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      text-align: center;
+      color: var(--medium-gray);
+    }
+    .timeslot-btn {
+      display: block;
+      width: 100%;
+      padding: 12px 8px;
+      margin-bottom: 8px;
+      background: var(--white);
+      border: 1.5px solid var(--light-gray);
+      border-radius: 6px;
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--black);
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
+    }
+    .timeslot-btn:hover {
+      border-color: var(--gold);
+      background: rgba(200,160,74,0.08);
+      transform: translateY(-1px);
+    }
+    .timeslot-btn.selected {
+      padding: 0;
+      border-color: #4A6CF7;
+      overflow: hidden;
+      display: flex;
+      cursor: default;
+    }
+    .timeslot-btn.selected .timeslot-time-half {
+      flex: 1;
+      background: #6B7280;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 8px;
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .timeslot-btn.selected .timeslot-select-half {
+      flex: 1;
+      background: #4A6CF7;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 8px;
+      font-family: var(--font-heading);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .timeslot-btn.selected .timeslot-select-half:hover {
+      background: #3B5DE7;
+    }
+    .timeslot-btn.selected .timeslot-class-name {
+      display: none;
+    }
+    .timeslots__empty {
+      font-size: 0.85rem;
+      color: #bbb;
+      text-align: center;
+      padding: 20px 0;
+    }
+    .timeslot-class-name {
+      display: block;
+      font-size: 0.68rem;
+      font-weight: 400;
+      color: var(--medium-gray);
+      margin-top: 2px;
+    }
+
+    /* Back button */
+    .booking-back-btn {
+      background: none;
+      border: none;
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--medium-gray);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 20px;
+      transition: color 0.2s;
+    }
+    .booking-back-btn:hover {
+      color: var(--black);
+    }
+
+    /* Info Form */
+    .info-form-card {
+      max-width: 520px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: 12px;
+      padding: 40px 35px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .info-form-card h2 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .info-form-card p {
+      text-align: center;
+      color: var(--medium-gray);
+      margin-bottom: 25px;
+      font-size: 0.9rem;
+    }
+    .info-form-card .booking-form__field {
+      margin-bottom: 18px;
+    }
+    .info-form-card .booking-form__field label {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+      color: var(--black);
+    }
+    .info-form-card .booking-form__field input,
+    .info-form-card .booking-form__field textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1.5px solid var(--light-gray);
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-family: var(--font-body);
+      transition: border-color 0.2s;
+      box-sizing: border-box;
+    }
+    .info-form-card .booking-form__field input:focus,
+    .info-form-card .booking-form__field textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+    .info-form-card .booking-form__field textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+    .info-form-card .booking-form__disclaimer {
+      font-size: 0.72rem;
+      color: var(--medium-gray);
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+    .info-form-card .booking-form__submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--gold);
+      color: var(--white);
+      border: none;
+      border-radius: 6px;
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .info-form-card .booking-form__submit:hover {
+      background: var(--gold-dark);
+    }
+
+    /* Confirmation */
+    .booking-confirmation {
+      text-align: center;
+      padding: 60px 20px;
+      animation: fadeInStep 0.5s ease;
+    }
+    .booking-confirmation__icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #2d7d32;
+      margin: 0 auto 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .booking-confirmation__icon svg {
+      width: 40px;
+      height: 40px;
+      fill: var(--white);
+    }
+    .booking-confirmation h2 {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+    .booking-confirmation p {
+      font-size: 0.95rem;
+      color: var(--medium-gray);
+      max-width: 450px;
+      margin: 0 auto 8px;
+      line-height: 1.7;
+    }
+    .booking-confirmation__details {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 25px 30px;
+      max-width: 400px;
+      margin: 25px auto 0;
+      text-align: left;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+    }
+    .booking-confirmation__detail-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      font-size: 0.85rem;
+      border-bottom: 1px solid var(--light-gray);
+    }
+    .booking-confirmation__detail-row:last-child {
+      border-bottom: none;
+    }
+    .booking-confirmation__detail-row .label {
+      color: var(--medium-gray);
+      font-weight: 500;
+    }
+    .booking-confirmation__detail-row .value {
+      font-weight: 700;
+      color: var(--black);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .program-row-kids,
+      .program-row-adults {
+        grid-template-columns: 1fr;
+        max-width: 380px;
+        margin: 0 auto 16px;
+      }
+      .schedule-picker {
+        grid-template-columns: 1fr;
+        padding: 25px 20px;
+      }
+      .schedule-header h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="container">
+      <a href="mailto:info@day1jiujitsunewton.com">INFO@DAY1JIUJITSUNEWTON.COM</a>
+      <div class="top-bar__cta-wrapper"><a href="book.html" class="top-bar__cta">Book Free Trial</a></div>
+      <a href="tel:8576055637">857-605-5637</a>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar__logo"><img src="images/logo.jpg" alt="Day 1 Brazilian Jiu-Jitsu" class="navbar__logo-img">
+      </a>
+      <button class="navbar__toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="navbar__links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li class="navbar__dropdown"><a href="programs-adults.html">Programs</a><ul class="navbar__dropdown-menu"><li><a href="programs-kids.html">Kids</a></li><li><a href="programs-adults.html">Adults</a></li></ul></li>
+        <li><a href="schedule.html">Schedule</a></li>
+        <li><a href="visit.html">Visit Us</a></li>
+        <li><a href="book.html" class="btn btn-gold navbar__cta">Book Free Trial</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- SCHEDULE PAGE -->
+  <section class="schedule-page">
+    <div class="schedule-container">
+
+      <!-- STEP 1: Choose Program -->
+      <div class="schedule-step active" id="stepProgram">
+        <div class="schedule-header">
+          <h1>Click Below To Schedule Your Free Trial Class!</h1>
+          <p>Choose Your Program To Get Started</p>
+        </div>
+
+        <div class="program-row-kids">
+          <div class="program-btn" data-program="kids-7-9" data-program-label="Kids Jiu-Jitsu (Ages 7-9)">
+            <h3>Kids Jiu-Jitsu</h3>
+            <p>(Ages 7–9)</p>
+          </div>
+          <div class="program-btn" data-program="kids-10-15" data-program-label="Kids Jiu-Jitsu (Ages 10-15)">
+            <h3>Kids Jiu-Jitsu</h3>
+            <p>(Ages 10–15)</p>
+          </div>
+        </div>
+
+        <div class="program-row-adults">
+          <div class="program-btn" data-program="adults-intro" data-program-label="Adult Beginners Intro to Jiu-Jitsu">
+            <h3>Adult Beginners Intro to Jiu-Jitsu</h3>
+            <p>(No Experience)</p>
+          </div>
+          <div class="program-btn" data-program="adults-fundamentals" data-program-label="Adults Beginners Jiu-Jitsu">
+            <h3>Adults Beginners Jiu-Jitsu</h3>
+            <p>(White Belt Up To 2 Stripes)</p>
+          </div>
+        </div>
+
+        <div class="program-row-adults program-row-adults--single">
+          <div class="program-btn" data-program="adults-intermediate" data-program-label="Adults Intermediate & Advanced Jiu-Jitsu">
+            <h3>Adults Intermediate & Advanced Jiu-Jitsu</h3>
+            <p>(White Belt 2 Stripes and Up)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2: Calendar & Time Slots -->
+      <div class="schedule-step" id="stepCalendar">
+        <button class="booking-back-btn" id="backToPrograms">← Change Program</button>
+        <div class="selected-program-label">
+          <span id="selectedProgramText"></span>
+        </div>
+
+        <div class="schedule-picker">
+          <div class="calendar-section">
+            <h3>Pick a Date</h3>
+            <div class="calendar" id="calendar">
+              <div class="calendar__nav">
+                <button class="calendar__nav-btn" id="calPrev">‹</button>
+                <span class="calendar__month" id="calMonth"></span>
+                <button class="calendar__nav-btn" id="calNext">›</button>
+              </div>
+              <div class="calendar__grid" id="calGrid"></div>
+            </div>
+            <div class="calendar__timezone">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+              GMT-04:00 America/New_York (EDT)
+            </div>
+          </div>
+
+          <div class="timeslots-section">
+            <h3>Available Times</h3>
+            <div class="timeslots__date-label" id="timeslotsDateLabel">
+              Select a date to see available times
+            </div>
+            <div id="timeslotsContainer"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3: YOUR INFO -->
+      <div class="schedule-step" id="stepInfo">
+        <button class="booking-back-btn" id="backToCalendar">← Back to Schedule</button>
+        <div class="info-form-card">
+          <h2>Almost There!</h2>
+          <p>Fill in your details to confirm your booking.</p>
+          <form id="infoForm" class="booking-form">
+            <div class="booking-form__field">
+              <label>Full Name *</label>
+              <input type="text" name="fullName" id="infoFullName" placeholder="Full Name" required>
+            </div>
+            <div class="booking-form__field">
+              <label>Email *</label>
+              <input type="email" name="email" id="infoEmail" placeholder="Email" required>
+            </div>
+            <div class="booking-form__field">
+              <label>Phone *</label>
+              <input type="tel" name="phone" id="infoPhone" placeholder="Phone" required>
+            </div>
+            <div class="booking-form__field">
+              <label>Additional Information</label>
+              <textarea name="additionalInfo" id="infoAdditional" placeholder="Anything else you'd like us to know?" rows="4"></textarea>
+            </div>
+            <p class="booking-form__disclaimer">By submitting this form you consent to receive periodic text messages from Day 1 Brazilian Jiu-Jitsu. Standard rates may apply. Reply STOP to opt out.</p>
+            <button type="submit" class="booking-form__submit" id="infoSubmitBtn">Confirm My Booking</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- CONFIRMATION -->
+      <div class="schedule-step" id="stepConfirmation">
+        <div class="booking-confirmation">
+          <div class="booking-confirmation__icon">
+            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </div>
+          <h2 id="confirmTitle">You're All Set!</h2>
+          <p>Your free trial class has been scheduled. We'll see you on the mats! 🥋</p>
+          <div class="booking-confirmation__details" id="confirmationDetails"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div>
+        <img src="images/logo.jpg" alt="Day 1 Brazilian Jiu-Jitsu" class="footer__logo-img">
+      </div>
+      <div class="footer__columns">
+        <div class="footer__col">
+          <div class="footer__col-title">Location</div>
+          <p>447 Centre Street · Newton, MA</p>
+        </div>
+        <div class="footer__col">
+          <div class="footer__col-title">Email</div>
+          <a href="mailto:info@day1jiujitsunewton.com">info@day1jiujitsunewton.com</a>
+        </div>
+        <div class="footer__col">
+          <div class="footer__col-title">Phone</div>
+          <a href="tel:8576055637">+1 857 605 5637</a>
+        </div>
+        <div class="footer__col">
+          <div class="footer__col-title">Help</div>
+          <a href="#">Privacy Policy</a><br>
+          <a href="#">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+  (function(){
+    // ============================
+    // SCHEDULE DATA
+    // ============================
+    var SCHEDULE = {
+      0: [ // Sunday
+        { time: '9:00 AM', className: 'Beginners Intro', programs: ['adults-intro'] },
+        { time: '10:00 AM', className: 'Fundamentals', programs: ['adults-fundamentals', 'adults-intermediate'] },
+        { time: '11:00 AM', className: 'Open Mat / Drill (Gi & NOGI)', programs: ['adults-intermediate'] }
+      ],
+      1: [ // Monday
+        { time: '6:15 AM', className: 'All Levels', programs: ['adults-fundamentals', 'adults-intermediate'] },
+        { time: '11:00 AM', className: 'Beginners Intro', programs: ['adults-intro'] },
+        { time: '12:00 PM', className: 'Intermediate / Advanced', programs: ['adults-intermediate'] },
+        { time: '5:00 PM', className: 'Kids (10-15 Yrs)', programs: ['kids-10-15'] },
+        { time: '6:00 PM', className: 'Intermediate / Advanced', programs: ['adults-intermediate'] },
+        { time: '6:00 PM', className: 'Beginners Intro', programs: ['adults-intro'] },
+        { time: '7:00 PM', className: 'Fundamentals', programs: ['adults-fundamentals', 'adults-intermediate'] },
+        { time: '7:15 PM', className: 'Beginners Intro', programs: ['adults-intro'] }
+      ],
+      2: [ // Tuesday
+        { time: '12:00 PM', className: 'Fundamentals', programs: ['adults-fundamentals', 'adults-intermediate'] },
+        { time: '4:00 PM', className: 'Beginners Intro', programs: ['adults-intro'] },
+        { time: '5:00 PM', className: 'Kids (7-9 Yrs)', programs: ['kids-7-9'] },
+        { time: '6:00 PM', className: 'Fundamentals', programs: ['adults-fundamentals', 'adults-intermediate'] },
+        { time: '6:00 PM', className: 'Beginners Intro', programs: ['adults-intro'] },
+        { time: '7:00 PM', className: 'NOGI Intermediate / Advanced', programs: ['adults-intermediate'] }
+      ],
+      3: [ // Wednesday
+        { time: '6:15 AM', className: 'All Levels', programs: ['adults-fundamentals', 'adults-intermediate'] },
+        { time: '11:00 AM', className: 'Beginners Intro', programs: ['adults-intro'] },
+        { time: '12:00 PM', className: 'NOGI Intermediate / Advanced', programs: ['adults-intermediate'] },
+        { time: '4:00 PM', className: 'Beginners Intro', programs: ['adults-intro'] },
+        { time: '5:00 PM', className: 'Kids (10-15 Yrs)', programs: ['kids-10-15'] },
+        { time: '6:00 PM', className: 'Intermediate / Advanced', programs: ['adults-intermediate'] },
+        { time: '7:00 PM', className: 'Fundamentals', programs: ['adults-fundamentals', 'adults-intermediate'] },
+        { time: '7:15 PM', className: 'Beginners Intro', programs: ['adults-intro'] }
+      ],
+      4: [ // Thursday
+        { time: '12:00 PM', className: 'Fundamentals', programs: ['adults-fundamentals', 'adults-intermediate'] },
+        { time: '4:00 PM', className: 'Beginners Intro', programs: ['adults-intro'] },
+        { time: '5:00 PM', className: 'Kids (7-9 Yrs)', programs: ['kids-7-9'] },
+        { time: '6:00 PM', className: 'Fundamentals', programs: ['adults-fundamentals', 'adults-intermediate'] },
+        { time: '6:00 PM', className: 'Beginners Intro', programs: ['adults-intro'] },
+        { time: '7:00 PM', className: 'NOGI Intermediate / Advanced', programs: ['adults-intermediate'] }
+      ],
+      5: [ // Friday
+        { time: '6:15 AM', className: 'NOGI All Levels', programs: ['adults-fundamentals', 'adults-intermediate'] },
+        { time: '11:00 AM', className: 'Beginners Intro', programs: ['adults-intro'] },
+        { time: '12:00 PM', className: 'Intermediate / Advanced', programs: ['adults-intermediate'] },
+        { time: '5:00 PM', className: 'Beginners Intro', programs: ['adults-intro'] },
+        { time: '6:00 PM', className: 'Fundamentals', programs: ['adults-fundamentals', 'adults-intermediate'] },
+        { time: '7:00 PM', className: 'Open Mat / Drill (Gi & NOGI)', programs: ['adults-intermediate'] }
+      ],
+      6: [ // Saturday
+        { time: '10:00 AM', className: 'Kids (9-15 Yrs)', programs: ['kids-7-9', 'kids-10-15'] },
+        { time: '11:00 AM', className: 'Fundamentals', programs: ['adults-fundamentals', 'adults-intermediate'] },
+        { time: '11:00 AM', className: 'Beginners Intro', programs: ['adults-intro'] },
+        { time: '12:00 PM', className: 'Open Mat / Drill (Gi & NOGI)', programs: ['adults-intermediate'] }
+      ]
+    };
+
+    var DAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    var MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June',
+                       'July', 'August', 'September', 'October', 'November', 'December'];
+
+    // Read user info from URL params (passed from book.html)
+    var urlParams = new URLSearchParams(window.location.search);
+    var userInfo = {
+      fullName: urlParams.get('fullName') || '',
+      email: urlParams.get('email') || '',
+      phone: urlParams.get('phone') || ''
+    };
+
+    // State
+    var state = {
+      selectedProgram: null,
+      selectedProgramLabel: '',
+      calMonth: new Date().getMonth(),
+      calYear: new Date().getFullYear(),
+      selectedDate: null,
+      selectedTime: null,
+      selectedClassName: ''
+    };
+
+    // Elements
+    var stepProgram = document.getElementById('stepProgram');
+    var stepCalendar = document.getElementById('stepCalendar');
+    var stepInfo = document.getElementById('stepInfo');
+    var stepConfirmation = document.getElementById('stepConfirmation');
+
+    function showStep(step) {
+      stepProgram.classList.remove('active');
+      stepCalendar.classList.remove('active');
+      stepInfo.classList.remove('active');
+      stepConfirmation.classList.remove('active');
+      step.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ============================
+    // STEP 1: Program Selection
+    // ============================
+    document.querySelectorAll('.program-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        state.selectedProgram = this.dataset.program;
+        state.selectedProgramLabel = this.dataset.programLabel;
+        state.selectedTime = null;
+
+        // Auto-select today if it has available slots, otherwise find next available
+        var today = new Date();
+        today.setHours(0,0,0,0);
+        var slots = getAvailableSlots(today.getDay());
+        if (slots.length > 0) {
+          state.selectedDate = today;
+        } else {
+          state.selectedDate = null;
+          // Find next available date within 30 days
+          for (var i = 1; i <= 30; i++) {
+            var next = new Date(today);
+            next.setDate(next.getDate() + i);
+            if (getAvailableSlots(next.getDay()).length > 0) {
+              state.selectedDate = next;
+              state.calMonth = next.getMonth();
+              state.calYear = next.getFullYear();
+              break;
+            }
+          }
+        }
+
+        document.getElementById('selectedProgramText').textContent = state.selectedProgramLabel;
+
+        renderCalendar();
+        showStep(stepCalendar);
+      });
+    });
+
+    // Back buttons
+    document.getElementById('backToPrograms').addEventListener('click', function() {
+      showStep(stepProgram);
+    });
+    document.getElementById('backToCalendar').addEventListener('click', function() {
+      showStep(stepCalendar);
+    });
+
+    // ============================
+    // STEP 2: Calendar & Time Slots
+    // ============================
+    var calGrid = document.getElementById('calGrid');
+    var calMonth = document.getElementById('calMonth');
+
+    document.getElementById('calPrev').addEventListener('click', function() {
+      state.calMonth--;
+      if (state.calMonth < 0) { state.calMonth = 11; state.calYear--; }
+      renderCalendar();
+    });
+    document.getElementById('calNext').addEventListener('click', function() {
+      state.calMonth++;
+      if (state.calMonth > 11) { state.calMonth = 0; state.calYear++; }
+      renderCalendar();
+    });
+
+    function getAvailableSlots(dayOfWeek) {
+      if (!SCHEDULE[dayOfWeek]) return [];
+      return SCHEDULE[dayOfWeek].filter(function(slot) {
+        return slot.programs.indexOf(state.selectedProgram) !== -1;
+      });
+    }
+
+    function renderCalendar() {
+      calMonth.textContent = MONTH_NAMES[state.calMonth] + ' ' + state.calYear;
+
+      var firstDay = new Date(state.calYear, state.calMonth, 1).getDay();
+      var daysInMonth = new Date(state.calYear, state.calMonth + 1, 0).getDate();
+      var today = new Date();
+      today.setHours(0,0,0,0);
+
+      var html = '';
+      ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].forEach(function(d) {
+        html += '<div class="calendar__day-header">' + d + '</div>';
+      });
+
+      for (var i = 0; i < firstDay; i++) {
+        html += '<div class="calendar__day"></div>';
+      }
+
+      for (var d = 1; d <= daysInMonth; d++) {
+        var date = new Date(state.calYear, state.calMonth, d);
+        var dow = date.getDay();
+        var slots = getAvailableSlots(dow);
+        var isPast = date < today;
+        var isAvailable = slots.length > 0 && !isPast;
+        var isToday = date.getTime() === today.getTime();
+        var isSelected = state.selectedDate && date.getTime() === state.selectedDate.getTime();
+
+        var classes = ['calendar__day'];
+        if (isAvailable) classes.push('available');
+        if (isToday) classes.push('today');
+        if (isSelected) classes.push('selected');
+
+        html += '<div class="' + classes.join(' ') + '" data-date="' + date.toISOString() + '">' + d + '</div>';
+      }
+
+      calGrid.innerHTML = html;
+
+      calGrid.querySelectorAll('.calendar__day.available').forEach(function(el) {
+        el.addEventListener('click', function() {
+          state.selectedDate = new Date(this.dataset.date);
+          state.selectedTime = null;
+          renderCalendar();
+          renderTimeslots();
+        });
+      });
+
+      if (state.selectedDate) {
+        renderTimeslots();
+      }
+    }
+
+    function renderTimeslots() {
+      var container = document.getElementById('timeslotsContainer');
+      var label = document.getElementById('timeslotsDateLabel');
+
+      if (!state.selectedDate) {
+        label.innerHTML = 'Select a date to see available times';
+        container.innerHTML = '';
+        return;
+      }
+
+      var dow = state.selectedDate.getDay();
+      var dayName = DAY_NAMES[dow];
+      var monthName = MONTH_NAMES[state.selectedDate.getMonth()];
+      var dateStr = dayName + ', ' + monthName + ' ' + state.selectedDate.getDate() + ', ' + state.selectedDate.getFullYear();
+
+      label.innerHTML = 'Available starting times for <strong>' + dateStr + '</strong>';
+
+      var slots = getAvailableSlots(dow);
+
+      if (slots.length === 0) {
+        container.innerHTML = '<div class="timeslots__empty">No classes available on this date for the selected program</div>';
+        return;
+      }
+
+      var amSlots = slots.filter(function(s){ return s.time.indexOf('AM') !== -1; });
+      var pmSlots = slots.filter(function(s){ return s.time.indexOf('PM') !== -1; });
+
+      var html = '<div class="timeslots__columns">';
+
+      function renderSlotBtn(slot) {
+        var isSelected = state.selectedTime === slot.time && state.selectedClassName === slot.className;
+        if (isSelected) {
+          return '<div class="timeslot-btn selected" data-time="' + slot.time + '" data-classname="' + slot.className + '">' +
+                 '<span class="timeslot-time-half">' + slot.time + '</span>' +
+                 '<span class="timeslot-select-half" data-time="' + slot.time + '" data-classname="' + slot.className + '">Select</span>' +
+                 '<span class="timeslot-class-name">' + slot.className + '</span></div>';
+        }
+        return '<button class="timeslot-btn" data-time="' + slot.time + '" data-classname="' + slot.className + '">' +
+               slot.time + '<span class="timeslot-class-name">' + slot.className + '</span></button>';
+      }
+
+      html += '<div><div class="timeslots__col-title">AM</div>';
+      if (amSlots.length === 0) {
+        html += '<div class="timeslots__empty">No Slots available</div>';
+      } else {
+        amSlots.forEach(function(slot) { html += renderSlotBtn(slot); });
+      }
+      html += '</div>';
+
+      html += '<div><div class="timeslots__col-title">PM</div>';
+      if (pmSlots.length === 0) {
+        html += '<div class="timeslots__empty">No Slots available</div>';
+      } else {
+        pmSlots.forEach(function(slot) { html += renderSlotBtn(slot); });
+      }
+      html += '</div></div>';
+
+      container.innerHTML = html;
+
+      // First click: highlight the slot (show split button)
+      container.querySelectorAll('.timeslot-btn:not(.selected)').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          state.selectedTime = this.dataset.time;
+          state.selectedClassName = this.dataset.classname;
+          renderTimeslots();
+        });
+      });
+
+      // Second click: "Select" button goes to info form
+      container.querySelectorAll('.timeslot-select-half').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          // Pre-fill form if user info came from book.html
+          if (userInfo.fullName) document.getElementById('infoFullName').value = userInfo.fullName;
+          if (userInfo.email) document.getElementById('infoEmail').value = userInfo.email;
+          if (userInfo.phone) document.getElementById('infoPhone').value = userInfo.phone;
+          showStep(stepInfo);
+        });
+      });
+    }
+
+    // ============================
+    // STEP 3: Info Form
+    // ============================
+    document.getElementById('infoForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      var btn = document.getElementById('infoSubmitBtn');
+      btn.disabled = true;
+      btn.textContent = 'Submitting...';
+
+      // Update userInfo from form
+      userInfo.fullName = document.getElementById('infoFullName').value.trim();
+      userInfo.email = document.getElementById('infoEmail').value.trim();
+      userInfo.phone = document.getElementById('infoPhone').value.trim();
+      userInfo.additionalInfo = document.getElementById('infoAdditional').value.trim();
+
+      // Conversion events fire on book.html Continue button only (to avoid duplicate leads)
+
+      submitBooking();
+    });
+
+    // ============================
+    // SUBMISSION & CONFIRMATION
+    // ============================
+    function submitBooking() {
+      var dow = state.selectedDate.getDay();
+      var dayName = DAY_NAMES[dow];
+      var monthName = MONTH_NAMES[state.selectedDate.getMonth()];
+      var dateStr = dayName + ', ' + monthName + ' ' + state.selectedDate.getDate() + ', ' + state.selectedDate.getFullYear();
+
+      // Send booking to Google Sheets
+      var params = new URLSearchParams();
+      params.append('fullName', userInfo.fullName);
+      params.append('email', userInfo.email);
+      params.append('phone', userInfo.phone);
+      params.append('additionalInfo', userInfo.additionalInfo || '');
+      params.append('program', state.selectedProgramLabel);
+      params.append('selectedDate', dateStr);
+      params.append('selectedTime', state.selectedTime);
+      params.append('selectedClass', state.selectedClassName);
+      params.append('source', 'choose-program');
+
+      fetch('https://script.google.com/macros/s/AKfycbzz_N2-TcQL50iuJWYixxm7ljJuP1WnpX621yx6gJ6YHITUEH579ZEnEv-24F1HPpbM/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: params.toString()
+      }).then(function() {
+        showConfirmation(dateStr);
+      }).catch(function() {
+        showConfirmation(dateStr);
+      });
+    }
+
+    function showConfirmation(dateStr) {
+      var displayName = userInfo.fullName.split(' ')[0];
+      document.getElementById('confirmTitle').textContent = 'Thank You, ' + displayName + '!';
+
+      var btn = document.getElementById('infoSubmitBtn');
+      btn.disabled = false;
+      btn.textContent = 'Confirm My Booking';
+
+      var html = '';
+      html += '<div class="booking-confirmation__detail-row"><span class="label">Name</span><span class="value">' + userInfo.fullName + '</span></div>';
+      html += '<div class="booking-confirmation__detail-row"><span class="label">Program</span><span class="value">' + state.selectedProgramLabel + '</span></div>';
+      html += '<div class="booking-confirmation__detail-row"><span class="label">Date</span><span class="value">' + dateStr + '</span></div>';
+      html += '<div class="booking-confirmation__detail-row"><span class="label">Time</span><span class="value">' + state.selectedTime + '</span></div>';
+      html += '<div class="booking-confirmation__detail-row"><span class="label">Class</span><span class="value">' + state.selectedClassName + '</span></div>';
+
+      document.getElementById('confirmationDetails').innerHTML = html;
+      showStep(stepConfirmation);
+    }
+
+  })();
+  </script>
+</body>
+</html>
