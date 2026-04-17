@@ -104,10 +104,10 @@
       margin: 0;
     }
 
-    /* Kids row: 2 columns */
+    /* Kids row: 3 columns */
     .program-row-kids {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 16px;
       margin-bottom: 16px;
     }
@@ -574,13 +574,17 @@
         </div>
 
         <div class="program-row-kids">
-          <div class="program-btn" data-program="kids-7-9" data-program-label="Kids Jiu-Jitsu (Ages 7-9)">
+          <div class="program-btn" data-program="kids-4-6" data-program-label="Kids Jiu-Jitsu (Ages 4-6)">
             <h3>Kids Jiu-Jitsu</h3>
-            <p>(Ages 7–9)</p>
+            <p>(Ages 4–6)</p>
           </div>
-          <div class="program-btn" data-program="kids-10-15" data-program-label="Kids Jiu-Jitsu (Ages 10-15)">
+          <div class="program-btn" data-program="kids-6-9" data-program-label="Kids Jiu-Jitsu (Ages 6-9)">
             <h3>Kids Jiu-Jitsu</h3>
-            <p>(Ages 10–15)</p>
+            <p>(Ages 6–9)</p>
+          </div>
+          <div class="program-btn" data-program="kids-9-15" data-program-label="Kids Jiu-Jitsu (Ages 9-15)">
+            <h3>Kids Jiu-Jitsu</h3>
+            <p>(Ages 9–15)</p>
           </div>
         </div>
 
@@ -591,7 +595,7 @@
           </div>
           <div class="program-btn" data-program="adults-fundamentals" data-program-label="Adults Beginners Jiu-Jitsu">
             <h3>Adults Beginners Jiu-Jitsu</h3>
-            <p>(White Belt Up To 2 Stripes)</p>
+            <p>(White Belts / All Levels)</p>
           </div>
         </div>
 
@@ -718,23 +722,24 @@
     var SCHEDULE = {
       0: [ // Sunday
         { time: '9:00 AM', className: 'Beginners Intro', programs: ['adults-intro'] },
-        { time: '10:00 AM', className: 'Fundamentals', programs: ['adults-fundamentals', 'adults-intermediate'] },
-        { time: '11:00 AM', className: 'Open Mat / Drill (Gi & NOGI)', programs: ['adults-intermediate'] }
+        { time: '10:00 AM', className: 'Fundamentals', programs: ['adults-fundamentals', 'adults-intermediate'] }
       ],
       1: [ // Monday
         { time: '6:15 AM', className: 'All Levels', programs: ['adults-fundamentals', 'adults-intermediate'] },
         { time: '11:00 AM', className: 'Beginners Intro', programs: ['adults-intro'] },
         { time: '12:00 PM', className: 'Intermediate / Advanced', programs: ['adults-intermediate'] },
-        { time: '5:00 PM', className: 'Kids (10-15 Yrs)', programs: ['kids-10-15'] },
+        { time: '4:00 PM', className: 'Kids (4-6 Yrs)', programs: ['kids-4-6'], startDate: '2026-04-27' },
+        { time: '5:00 PM', className: 'Kids (9-15 Yrs)', programs: ['kids-9-15'] },
         { time: '6:00 PM', className: 'Intermediate / Advanced', programs: ['adults-intermediate'] },
         { time: '6:00 PM', className: 'Beginners Intro', programs: ['adults-intro'] },
         { time: '7:00 PM', className: 'Fundamentals', programs: ['adults-fundamentals', 'adults-intermediate'] },
         { time: '7:15 PM', className: 'Beginners Intro', programs: ['adults-intro'] }
       ],
       2: [ // Tuesday
+        { time: '11:00 AM', className: 'Beginners Intro', programs: ['adults-intro'] },
         { time: '12:00 PM', className: 'Fundamentals', programs: ['adults-fundamentals', 'adults-intermediate'] },
         { time: '4:00 PM', className: 'Beginners Intro', programs: ['adults-intro'] },
-        { time: '5:00 PM', className: 'Kids (7-9 Yrs)', programs: ['kids-7-9'] },
+        { time: '5:00 PM', className: 'Kids (6-9 Yrs)', programs: ['kids-6-9'] },
         { time: '6:00 PM', className: 'Fundamentals', programs: ['adults-fundamentals', 'adults-intermediate'] },
         { time: '6:00 PM', className: 'Beginners Intro', programs: ['adults-intro'] },
         { time: '7:00 PM', className: 'NOGI Intermediate / Advanced', programs: ['adults-intermediate'] }
@@ -744,15 +749,16 @@
         { time: '11:00 AM', className: 'Beginners Intro', programs: ['adults-intro'] },
         { time: '12:00 PM', className: 'NOGI Intermediate / Advanced', programs: ['adults-intermediate'] },
         { time: '4:00 PM', className: 'Beginners Intro', programs: ['adults-intro'] },
-        { time: '5:00 PM', className: 'Kids (10-15 Yrs)', programs: ['kids-10-15'] },
+        { time: '5:00 PM', className: 'Kids (9-15 Yrs)', programs: ['kids-9-15'] },
         { time: '6:00 PM', className: 'Intermediate / Advanced', programs: ['adults-intermediate'] },
         { time: '7:00 PM', className: 'Fundamentals', programs: ['adults-fundamentals', 'adults-intermediate'] },
         { time: '7:15 PM', className: 'Beginners Intro', programs: ['adults-intro'] }
       ],
       4: [ // Thursday
+        { time: '11:00 AM', className: 'Beginners Intro', programs: ['adults-intro'] },
         { time: '12:00 PM', className: 'Fundamentals', programs: ['adults-fundamentals', 'adults-intermediate'] },
         { time: '4:00 PM', className: 'Beginners Intro', programs: ['adults-intro'] },
-        { time: '5:00 PM', className: 'Kids (7-9 Yrs)', programs: ['kids-7-9'] },
+        { time: '5:00 PM', className: 'Kids (6-9 Yrs)', programs: ['kids-6-9'] },
         { time: '6:00 PM', className: 'Fundamentals', programs: ['adults-fundamentals', 'adults-intermediate'] },
         { time: '6:00 PM', className: 'Beginners Intro', programs: ['adults-intro'] },
         { time: '7:00 PM', className: 'NOGI Intermediate / Advanced', programs: ['adults-intermediate'] }
@@ -762,14 +768,13 @@
         { time: '11:00 AM', className: 'Beginners Intro', programs: ['adults-intro'] },
         { time: '12:00 PM', className: 'Intermediate / Advanced', programs: ['adults-intermediate'] },
         { time: '5:00 PM', className: 'Beginners Intro', programs: ['adults-intro'] },
-        { time: '6:00 PM', className: 'Fundamentals', programs: ['adults-fundamentals', 'adults-intermediate'] },
-        { time: '7:00 PM', className: 'Open Mat / Drill (Gi & NOGI)', programs: ['adults-intermediate'] }
+        { time: '6:00 PM', className: 'Fundamentals', programs: ['adults-fundamentals', 'adults-intermediate'] }
       ],
       6: [ // Saturday
-        { time: '10:00 AM', className: 'Kids (9-15 Yrs)', programs: ['kids-7-9', 'kids-10-15'] },
+        { time: '9:00 AM', className: 'Beginners Intro', programs: ['adults-intro'] },
+        { time: '10:00 AM', className: 'Kids (9-15 Yrs)', programs: ['kids-6-9', 'kids-9-15'] },
         { time: '11:00 AM', className: 'Fundamentals', programs: ['adults-fundamentals', 'adults-intermediate'] },
-        { time: '11:00 AM', className: 'Beginners Intro', programs: ['adults-intro'] },
-        { time: '12:00 PM', className: 'Open Mat / Drill (Gi & NOGI)', programs: ['adults-intermediate'] }
+        { time: '11:00 AM', className: 'Beginners Intro', programs: ['adults-intro'] }
       ]
     };
 
@@ -823,7 +828,7 @@
         // Auto-select today if it has available slots, otherwise find next available
         var today = new Date();
         today.setHours(0,0,0,0);
-        var slots = getAvailableSlots(today.getDay());
+        var slots = getAvailableSlots(today.getDay(), today);
         if (slots.length > 0) {
           state.selectedDate = today;
         } else {
@@ -832,7 +837,7 @@
           for (var i = 1; i <= 30; i++) {
             var next = new Date(today);
             next.setDate(next.getDate() + i);
-            if (getAvailableSlots(next.getDay()).length > 0) {
+            if (getAvailableSlots(next.getDay(), next).length > 0) {
               state.selectedDate = next;
               state.calMonth = next.getMonth();
               state.calYear = next.getFullYear();
@@ -873,10 +878,17 @@
       renderCalendar();
     });
 
-    function getAvailableSlots(dayOfWeek) {
+    function getAvailableSlots(dayOfWeek, date) {
       if (!SCHEDULE[dayOfWeek]) return [];
       return SCHEDULE[dayOfWeek].filter(function(slot) {
-        return slot.programs.indexOf(state.selectedProgram) !== -1;
+        if (slot.programs.indexOf(state.selectedProgram) === -1) return false;
+        // Check if slot has a start date restriction
+        if (slot.startDate && date) {
+          var startDate = new Date(slot.startDate);
+          startDate.setHours(0,0,0,0);
+          if (date < startDate) return false;
+        }
+        return true;
       });
     }
 
@@ -900,7 +912,7 @@
       for (var d = 1; d <= daysInMonth; d++) {
         var date = new Date(state.calYear, state.calMonth, d);
         var dow = date.getDay();
-        var slots = getAvailableSlots(dow);
+        var slots = getAvailableSlots(dow, date);
         var isPast = date < today;
         var isAvailable = slots.length > 0 && !isPast;
         var isToday = date.getTime() === today.getTime();
@@ -947,7 +959,7 @@
 
       label.innerHTML = 'Available starting times for <strong>' + dateStr + '</strong>';
 
-      var slots = getAvailableSlots(dow);
+      var slots = getAvailableSlots(dow, state.selectedDate);
 
       if (slots.length === 0) {
         container.innerHTML = '<div class="timeslots__empty">No classes available on this date for the selected program</div>';
