@@ -879,6 +879,10 @@
     });
 
     function getAvailableSlots(dayOfWeek, date) {
+      // Block all classes on Saturday, April 25, 2026
+      if (date && date.getFullYear() === 2026 && date.getMonth() === 3 && date.getDate() === 25) {
+        return [];
+      }
       if (!SCHEDULE[dayOfWeek]) return [];
       return SCHEDULE[dayOfWeek].filter(function(slot) {
         if (slot.programs.indexOf(state.selectedProgram) === -1) return false;
