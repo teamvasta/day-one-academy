@@ -855,6 +855,7 @@ img { max-width: 100%; display: block; }
 .footer__columns {
   display: flex;
   gap: 50px;
+  align-items: flex-start;
 }
 
 .footer__col {
