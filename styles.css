@@ -1213,6 +1213,7 @@ img { max-width: 100%; display: block; }
   min-width: 700px;
   border-collapse: separate;
   border-spacing: 6px;
+  table-layout: fixed;
 }
 
 .schedule-table th {
