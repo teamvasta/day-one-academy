@@ -885,6 +885,10 @@
       if (date && date.getFullYear() === 2026 && date.getMonth() === 3 && date.getDate() === 25) {
         return [];
       }
+      // Block all classes on Saturday, May 9, 2026
+      if (date && date.getFullYear() === 2026 && date.getMonth() === 4 && date.getDate() === 9) {
+        return [];
+      }
       if (!SCHEDULE[dayOfWeek]) return [];
       return SCHEDULE[dayOfWeek].filter(function(slot) {
         if (slot.programs.indexOf(state.selectedProgram) === -1) return false;
