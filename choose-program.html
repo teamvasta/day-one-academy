@@ -891,6 +891,12 @@
       if (!SCHEDULE[dayOfWeek]) return [];
       return SCHEDULE[dayOfWeek].filter(function(slot) {
         if (slot.programs.indexOf(state.selectedProgram) === -1) return false;
+        // Block 11:00 AM Beginners Intro (adults-intro) on Saturday, May 16, 2026
+        if (date && date.getFullYear() === 2026 && date.getMonth() === 4 && date.getDate() === 16
+            && slot.time === '11:00 AM' && slot.className === 'Beginners Intro'
+            && state.selectedProgram === 'adults-intro') {
+          return false;
+        }
         // Check if slot has a start date restriction
         if (slot.startDate && date) {
           var startDate = new Date(slot.startDate);
