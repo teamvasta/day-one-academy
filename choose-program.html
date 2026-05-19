@@ -905,6 +905,11 @@
             && state.selectedProgram === 'adults-intro') {
           return false;
         }
+        // Block 6:15 AM, 11 AM, 12 PM on Monday, May 25, 2026
+        if (date && date.getFullYear() === 2026 && date.getMonth() === 4 && date.getDate() === 25
+            && (slot.time === '6:15 AM' || slot.time === '11:00 AM' || slot.time === '12:00 PM')) {
+          return false;
+        }
         // Check if slot has a start date restriction
         if (slot.startDate && date) {
           var startDate = new Date(slot.startDate);
