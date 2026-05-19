@@ -910,6 +910,12 @@
             && (slot.time === '6:15 AM' || slot.time === '11:00 AM' || slot.time === '12:00 PM' || slot.time === '7:15 PM')) {
           return false;
         }
+        // Block 6:00 PM Beginners Intro (adults-intro only) on Monday, May 25, 2026
+        if (date && date.getFullYear() === 2026 && date.getMonth() === 4 && date.getDate() === 25
+            && slot.time === '6:00 PM' && slot.className === 'Beginners Intro'
+            && state.selectedProgram === 'adults-intro') {
+          return false;
+        }
         // Check if slot has a start date restriction
         if (slot.startDate && date) {
           var startDate = new Date(slot.startDate);
