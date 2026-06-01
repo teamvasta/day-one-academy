@@ -722,12 +722,12 @@
     // ============================
     var SCHEDULE = {
       0: [ // Sunday
-        { time: '9:00 AM', className: 'Beginners Intro', programs: ['adults-intro'] },
+        { time: '9:15 AM', className: 'Beginners Intro', programs: ['adults-intro'] },
         { time: '10:00 AM', className: 'Fundamentals', programs: ['adults-fundamentals', 'adults-intermediate'] }
       ],
       1: [ // Monday
         { time: '6:15 AM', className: 'All Levels', programs: ['adults-fundamentals', 'adults-intermediate'] },
-        { time: '11:00 AM', className: 'Beginners Intro', programs: ['adults-intro'] },
+        { time: '11:15 AM', className: 'Beginners Intro', programs: ['adults-intro'] },
         { time: '12:00 PM', className: 'Intermediate / Advanced', programs: ['adults-intermediate'] },
         { time: '4:00 PM', className: 'Kids (4-6 Yrs)', programs: ['kids-4-6'], startDate: '2026-04-27' },
         { time: '5:00 PM', className: 'Kids (9-15 Yrs)', programs: ['kids-9-15'] },
@@ -761,13 +761,13 @@
       ],
       5: [ // Friday
         { time: '6:15 AM', className: 'NOGI All Levels', programs: ['adults-fundamentals', 'adults-intermediate'] },
-        { time: '11:00 AM', className: 'Beginners Intro', programs: ['adults-intro'] },
+        { time: '11:15 AM', className: 'Beginners Intro', programs: ['adults-intro'] },
         { time: '12:00 PM', className: 'Intermediate / Advanced', programs: ['adults-intermediate'] },
-        { time: '5:00 PM', className: 'Beginners Intro', programs: ['adults-intro'] },
+        { time: '5:15 PM', className: 'Beginners Intro', programs: ['adults-intro'] },
         { time: '6:00 PM', className: 'Fundamentals', programs: ['adults-fundamentals', 'adults-intermediate'] }
       ],
       6: [ // Saturday
-        { time: '9:00 AM', className: 'Beginners Intro', programs: ['adults-intro'] },
+        { time: '9:15 AM', className: 'Beginners Intro', programs: ['adults-intro'] },
         { time: '10:00 AM', className: 'Kids (5-9 Yrs)', programs: ['kids-6-9'] },
         { time: '10:00 AM', className: 'Kids (9-15 Yrs)', programs: ['kids-9-15'] },
         { time: '11:00 AM', className: 'Fundamentals', programs: ['adults-fundamentals', 'adults-intermediate'] },
@@ -903,7 +903,7 @@
         }
         // Block 6:15 AM, 11 AM, 12 PM, 7:15 PM on Monday, May 25, 2026
         if (date && date.getFullYear() === 2026 && date.getMonth() === 4 && date.getDate() === 25
-            && (slot.time === '6:15 AM' || slot.time === '11:00 AM' || slot.time === '12:00 PM' || slot.time === '7:15 PM')) {
+            && (slot.time === '6:15 AM' || slot.time === '11:15 AM' || slot.time === '12:00 PM' || slot.time === '7:15 PM')) {
           return false;
         }
         // Block 6:00 PM Beginners Intro (adults-intro only) on Monday, May 25, 2026
