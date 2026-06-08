@@ -888,8 +888,20 @@
       if (date && date.getFullYear() === 2026 && date.getMonth() === 5 && date.getDate() === 13) {
         return [];
       }
+      // Block all classes on Thursday, July 2, 2026
+      if (date && date.getFullYear() === 2026 && date.getMonth() === 6 && date.getDate() === 2) {
+        return [];
+      }
+      // Block all classes on Friday, July 3, 2026
+      if (date && date.getFullYear() === 2026 && date.getMonth() === 6 && date.getDate() === 3) {
+        return [];
+      }
       // Block all classes on Saturday, July 4, 2026
       if (date && date.getFullYear() === 2026 && date.getMonth() === 6 && date.getDate() === 4) {
+        return [];
+      }
+      // Block all classes on Sunday, July 5, 2026
+      if (date && date.getFullYear() === 2026 && date.getMonth() === 6 && date.getDate() === 5) {
         return [];
       }
       if (!SCHEDULE[dayOfWeek]) return [];
