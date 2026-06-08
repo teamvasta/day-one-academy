@@ -924,6 +924,11 @@
             && state.selectedProgram === 'adults-intro') {
           return false;
         }
+        // Block all Kids (4-6) slots on Monday, June 15, 2026
+        if (date && date.getFullYear() === 2026 && date.getMonth() === 5 && date.getDate() === 15
+            && state.selectedProgram === 'kids-4-6') {
+          return false;
+        }
         // Check if slot has a start date restriction
         if (slot.startDate && date) {
           var startDate = new Date(slot.startDate);
