@@ -888,6 +888,10 @@
       if (date && date.getFullYear() === 2026 && date.getMonth() === 5 && date.getDate() === 13) {
         return [];
       }
+      // Block all classes on Sunday, June 21, 2026
+      if (date && date.getFullYear() === 2026 && date.getMonth() === 5 && date.getDate() === 21) {
+        return [];
+      }
       // Block all classes on Thursday, July 2, 2026
       if (date && date.getFullYear() === 2026 && date.getMonth() === 6 && date.getDate() === 2) {
         return [];
