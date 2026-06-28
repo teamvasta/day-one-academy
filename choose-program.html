@@ -950,6 +950,11 @@
             && state.selectedProgram === 'adults-intro') {
           return false;
         }
+        // Block all Kids programs on Wednesday, July 1, 2026
+        if (date && date.getFullYear() === 2026 && date.getMonth() === 6 && date.getDate() === 1
+            && (state.selectedProgram === 'kids-4-6' || state.selectedProgram === 'kids-6-9' || state.selectedProgram === 'kids-9-15')) {
+          return false;
+        }
         // Check if slot has a start date restriction
         if (slot.startDate && date) {
           var startDate = new Date(slot.startDate);
