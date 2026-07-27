@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Thank You | Day 1 Brazilian Jiu-Jitsu Newton, MA</title>
+  <style>
+    /* Reset */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    }
+
+    /* Card */
+    .thank-you-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 50px 60px;
+      text-align: center;
+      max-width: 520px;
+      width: 90%;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease forwards;
+      animation-delay: 0.15s;
+    }
+
+    /* Green Circle Checkmark */
+    .thank-you-card__icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 28px;
+    }
+
+    .thank-you-card__circle {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background-color: #2e7d32;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: scale(0.5);
+      animation: scaleIn 0.5s ease forwards;
+      animation-delay: 0.4s;
+    }
+
+    .thank-you-card__checkmark {
+      width: 30px;
+      height: 30px;
+      stroke: #ffffff;
+      stroke-width: 3.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+      animation: drawCheck 0.45s ease forwards;
+      animation-delay: 0.8s;
+    }
+
+    .thank-you-card__title {
+      font-size: 26px;
+      font-weight: 800;
+      color: #1a1a1a;
+      margin-bottom: 14px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .thank-you-card__subtitle {
+      font-size: 15px;
+      font-weight: 400;
+      color: #555555;
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+
+    .thank-you-card__redirect {
+      font-size: 13px;
+      color: #aaaaaa;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes scaleIn {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes drawCheck {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 500px) {
+      .thank-you-card {
+        padding: 40px 30px;
+      }
+
+      .thank-you-card__title {
+        font-size: 22px;
+      }
+
+      .thank-you-card__subtitle {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="thank-you-card">
+    <!-- Green Checkmark Icon -->
+    <div class="thank-you-card__icon">
+      <div class="thank-you-card__circle">
+        <svg class="thank-you-card__checkmark" viewBox="0 0 50 50">
+          <polyline points="12,26 22,36 38,16" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Text -->
+    <h1 class="thank-you-card__title">Thank You!</h1>
+    <p class="thank-you-card__subtitle">Thanks for scheduling your Free Trial Class at Day 1 Jiu-Jitsu Newton. We look forward to meeting you!</p>
+
+    <!-- Redirect Notice -->
+    <p class="thank-you-card__redirect">Redirecting to homepage...</p>
+  </div>
+
+  <!-- Redirect Script -->
+  <script>
+    setTimeout(function() {
+      window.location.href = 'https://day1jiujitsunewton.com';
+    }, 4000);
+  </script>
+
+</body>
+</html>
