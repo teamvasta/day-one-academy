@@ -89,18 +89,25 @@
       </div>
 
       <div class="contact-page__form-wrapper">
-        <form class="contact-form" id="contact-form">
-          <label>Full Name *</label>
-          <input type="text" name="fullName" placeholder="Full Name" required>
-          <label>Email *</label>
-          <input type="email" name="email" placeholder="Email" required>
-          <label>Phone *</label>
-          <input type="tel" name="phone" placeholder="Phone" required>
-          <label>Additional Information</label>
-          <textarea name="additionalInfo" placeholder="Anything else you'd like us to know?" rows="4"></textarea>
-          <p class="contact-form__disclaimer">By submitting this form you consent to receive periodic text messages from Day 1 Brazilian Jiu-Jitsu. Standard rates may apply. Reply STOP to opt out.</p>
-          <button type="submit" class="btn btn-gold">Schedule Your Free Trial Class</button>
-        </form>
+        <iframe
+            src="https://api.leadconnectorhq.com/widget/form/XycXldBqwYInj7DTbhmt"
+            style="width:100%;height:512px;border:none;border-radius:4px"
+            id="inline-XycXldBqwYInj7DTbhmt" 
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="Lead Form"
+            data-height="512"
+            data-layout-iframe-id="inline-XycXldBqwYInj7DTbhmt"
+            data-form-id="XycXldBqwYInj7DTbhmt"
+            title="Lead Form"
+        >
+        </iframe>
+        <script src="https://link.msgsndr.com/js/form_embed.js"></script>
       </div>
 
       <div class="contact-page__general fade-in">
@@ -168,50 +175,17 @@
 
   <script src="script.js"></script>
   <script>
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      var form = this;
-      var btn = form.querySelector('button[type="submit"]');
-      btn.textContent = 'Loading...';
-      btn.disabled = true;
-
-      var fullName = form.fullName.value;
-      var email = form.email.value;
-      var phone = form.phone.value;
-      var additionalInfo = form.additionalInfo.value;
-
-      // Fire conversion events
+  // Fire Google Ads and Meta conversion events when GoHighLevel form is submitted
+  window.addEventListener('message', function(event) {
+    if (event.data && (event.data.type === 'form-submitted' || event.data.formId === 'XycXldBqwYInj7DTbhmt')) {
       if (typeof gtag === 'function') {
         gtag('event', 'conversion', {'send_to': 'AW-18081811778/3gHRCN_PoZocEMKaiq5D', 'value': 1.0, 'currency': 'USD'});
       }
       if (typeof fbq === 'function') {
         fbq('track', 'Lead');
       }
-
-      // Send to Google Sheets then redirect to choose-program
-      var sheetParams = new URLSearchParams();
-      sheetParams.append('fullName', fullName);
-      sheetParams.append('email', email);
-      sheetParams.append('phone', phone);
-      sheetParams.append('additionalInfo', additionalInfo);
-
-      var redirectParams = new URLSearchParams();
-      redirectParams.set('fullName', fullName);
-      redirectParams.set('email', email);
-      redirectParams.set('phone', phone);
-      var redirectUrl = 'choose-program.html?' + redirectParams.toString();
-
-      var xhr = new XMLHttpRequest();
-      xhr.open('POST', 'https://script.google.com/macros/s/AKfycbzz_N2-TcQL50iuJWYixxm7ljJuP1WnpX621yx6gJ6YHITUEH579ZEnEv-24F1HPpbM/exec');
-      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-      xhr.onloadend = function() {
-        window.location.href = redirectUrl;
-      };
-      setTimeout(function() {
-        window.location.href = redirectUrl;
-      }, 3000);
-      xhr.send(sheetParams.toString());
-    });
+    }
+  });
   </script>
 
 </body>
