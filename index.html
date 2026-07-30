@@ -310,6 +310,58 @@
     </div>
   </footer>
 
+  <!-- Mobile Sticky CTA -->
+  <div class="mobile-sticky-cta" id="mobileStickyBtn">
+    <a href="book.html" class="mobile-sticky-cta__link">Book Free Trial</a>
+  </div>
+
+  <style>
+    .mobile-sticky-cta { display: none; }
+
+    @media (max-width: 768px) {
+      .mobile-sticky-cta {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 9999;
+        padding: 10px 16px;
+        background: rgba(26, 26, 26, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        transform: translateY(-100%);
+        transition: transform 0.35s ease;
+        pointer-events: none;
+      }
+      .mobile-sticky-cta.visible {
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+      .mobile-sticky-cta__link {
+        display: block;
+        width: 100%;
+        padding: 12px 20px;
+        background: var(--gold, #c8a04a);
+        color: #fff;
+        text-align: center;
+        font-family: 'Urbane', Arial, sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-decoration: none;
+        border-radius: 6px;
+        transition: background 0.3s ease;
+      }
+      .mobile-sticky-cta__link:hover,
+      .mobile-sticky-cta__link:active {
+        background: #b8903a;
+      }
+    }
+  </style>
+
   <script src="script.js"></script>
   <script>
   // Fire Google Ads and Meta conversion events when GoHighLevel form is submitted
@@ -324,7 +376,25 @@
     }
   });
   </script>
-
+  <script>
+  // Mobile sticky CTA — show when user scrolls past the navbar
+  (function() {
+    var btn = document.getElementById('mobileStickyBtn');
+    if (!btn) return;
+    var topBar = document.querySelector('.top-bar');
+    var navbar = document.querySelector('.navbar');
+    var trigger = 0;
+    if (topBar) trigger += topBar.offsetHeight;
+    if (navbar) trigger += navbar.offsetHeight;
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > trigger) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    });
+  })();
+  </script>
 
 </body>
 </html>
