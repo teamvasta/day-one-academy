@@ -438,9 +438,11 @@ img { max-width: 100%; display: block; }
 .hero .container { position: relative; z-index: 2; }
 
 .hero__content {
-  max-width: 500px;
+  max-width: 700px;
+  margin: 0 auto;
   color: var(--white);
   padding: 40px 0;
+  text-align: center;
 }
 
 .hero__content h1 {
@@ -486,6 +488,33 @@ img { max-width: 100%; display: block; }
 
 .hero__cta { margin-top: 16px; }
 .hero__cta .btn { border-radius: 0; }
+
+.hero__text-block {
+  margin-bottom: 30px;
+}
+
+.hero__text-highlight {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--gold, #c8a04a);
+  line-height: 1.6;
+  margin-bottom: 18px;
+  font-weight: 400;
+}
+
+.hero__text-body {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 300;
+  margin-bottom: 14px;
+}
+
+.hero__text-body:last-child {
+  margin-bottom: 0;
+}
 
 /* ========================================
    WELCOME SECTION (HOME PAGE)
@@ -1745,6 +1774,9 @@ img { max-width: 100%; display: block; }
   .hero__bg img { object-position: 70% top; }
   .hero__content { padding-top: 20px; }
   .hero__content h1, .page-hero__content h1 { font-size: 2rem; }
+  .hero__text-highlight { font-size: 0.85rem; margin-bottom: 12px; }
+  .hero__text-body { font-size: 0.78rem; line-height: 1.6; margin-bottom: 10px; }
+  .hero__text-block { margin-bottom: 18px; }
 
   .section-title { font-size: 1.7rem; }
 
@@ -1763,6 +1795,10 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 480px) {
   .hero__content h1 { font-size: 1.6rem; }
+  .hero__text-highlight { font-size: 0.8rem; margin-bottom: 10px; }
+  .hero__text-body { font-size: 0.72rem; line-height: 1.55; margin-bottom: 8px; }
+  .hero__text-block { margin-bottom: 14px; }
+  .hero__cta { margin-top: 10px; }
   .instructors-grid { grid-template-columns: 1fr; }
 }
 
