@@ -1293,7 +1293,7 @@ img.review-card-page__avatar {
   line-height: 2;
 }
 .diff-card li::before {
-  content: '• ';
+  content: '\2022  ';
   color: var(--gold);
 }
 
@@ -1401,7 +1401,7 @@ img.review-card-page__avatar {
   line-height: 2.2;
 }
 .system-section__list li::before {
-  content: '• ';
+  content: '\2022  ';
   color: var(--gold);
 }
 
@@ -1675,7 +1675,7 @@ img.review-card-page__avatar {
    FACILITY PAGE
    ======================================== */
 
-/* Facility hero — taller than other inner pages */
+/* Facility hero &mdash; taller than other inner pages */
 .facility-hero {
   min-height: 420px;
 }
