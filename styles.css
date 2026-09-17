@@ -305,6 +305,9 @@ img { max-width: 100%; display: block; }
 .navbar__links a.active-link {
   color: var(--gold);
 }
+.navbar__links a.btn-gold.active-link {
+  color: var(--white);
+}
 
 .navbar__links a::after {
   content: '';
