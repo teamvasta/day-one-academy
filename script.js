@@ -4,6 +4,36 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // ========== Lovato Seminar Announcement Bar (TEMPORARY) ==========
+  // Shows on the home page only. Auto-hides Oct 17, 2026 at 1 PM Eastern.
+  // To remove early: delete this whole block.
+  try { (function () {
+    const endsAt = new Date('2026-10-17T13:00:00-04:00');
+    const onHomePage = /^\/(index(\.html)?)?$/.test(window.location.pathname);
+    if (new Date() > endsAt || !onHomePage) return;
+
+    const bar = document.createElement('a');
+    bar.href = 'lovato.html';
+    bar.className = 'event-announce';
+    bar.innerHTML = '<strong>Rafael Lovato Gi Seminar</strong>' +
+      '<span class="event-announce__sep">·</span>Sat, Oct 17' +
+      '<span class="event-announce__cta">Reserve your spot &rarr;</span>';
+
+    const style = document.createElement('style');
+    style.textContent =
+      '.event-announce{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:4px 10px;' +
+      'background:var(--gold);color:var(--black);padding:10px 16px;text-align:center;' +
+      'font-family:var(--font-heading);font-size:0.85rem;letter-spacing:1px;text-transform:uppercase;transition:background .2s}' +
+      '.event-announce:hover{background:var(--gold-dark);color:var(--black)}' +
+      '.event-announce__sep{opacity:.6}' +
+      '.event-announce__cta{font-weight:700;text-decoration:underline;text-underline-offset:3px;margin-left:6px}' +
+      '@media (max-width:600px){.event-announce{font-size:0.75rem}.event-announce__sep{display:none}}';
+
+    document.head.appendChild(style);
+    document.body.insertBefore(bar, document.body.firstChild);
+  })(); } catch (e) { /* never let the banner break the page */ }
+  // ========== End Lovato Seminar Announcement Bar ==========
+
   // ========== Mobile Navigation Toggle ==========
   const navToggle = document.getElementById('nav-toggle');
   const navLinks = document.getElementById('nav-links');
