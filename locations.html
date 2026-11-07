@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Locations | Day 1 Jiu-Jitsu Newton &amp; Bernardo Faria Academy Bedford</title>
+  <meta name="description" content="Choose your location: Day 1 Jiu-Jitsu in Newton, MA or Bernardo Faria Academy in Bedford, MA.">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body.locations-page {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      color: #111;
+    }
+
+    /* Main */
+    .loc-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 64px 20px;
+    }
+    .loc-title {
+      margin: 0;
+      font-family: 'Urbane', Arial, sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      text-align: center;
+    }
+    .loc-subtitle {
+      margin: 10px 0 56px;
+      font-size: 0.95rem;
+      color: #777;
+      text-align: center;
+    }
+
+    .loc-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: stretch;
+      gap: 48px;
+      width: 100%;
+      max-width: 680px;
+    }
+    .loc-divider { width: 1px; background: #ddd; }
+
+    .loc-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .loc-card__logo {
+      display: block;
+      transition: transform 0.25s ease;
+    }
+    .loc-card__logo:hover { transform: translateY(-4px); }
+    .loc-card__logo img {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      display: block;
+    }
+    .loc-card__city {
+      margin: 18px 0 2px;
+      font-family: 'Urbane', Arial, sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .loc-card__academy {
+      margin: 0 0 12px;
+      font-size: 0.8rem;
+      color: #777;
+    }
+    .loc-card__info {
+      margin: 0 0 18px;
+      font-size: 0.82rem;
+      line-height: 1.7;
+    }
+    .loc-card__info a { color: #444; transition: color 0.2s ease; }
+    .loc-card__info a:hover { color: var(--gold, #c8a04a); }
+
+    .loc-card__btn {
+      margin-top: auto;
+      display: inline-block;
+      padding: 9px 20px;
+      border: 1.5px solid #111;
+      border-radius: 4px;
+      font-family: 'Urbane', Arial, sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #111;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .loc-card__btn:hover {
+      background: var(--gold, #c8a04a);
+      border-color: var(--gold, #c8a04a);
+      color: #fff;
+    }
+
+    /* Photo banner (banner version only) */
+    .loc-banner {
+      position: relative;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #222;
+    }
+    /* Photo layer: black & white, cropped to the team */
+    .loc-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('images/locations/banner.jpg') center 48% / cover no-repeat;
+      filter: grayscale(100%);
+    }
+    /* Dark overlay so the white text stands out */
+    .loc-banner::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+    }
+    .loc-banner__inner { position: relative; z-index: 1; text-align: center; padding: 0 20px; }
+    .loc-banner .loc-title { color: #fff; font-size: clamp(1.4rem, 3vw, 1.9rem); }
+    .loc-banner .loc-title::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 2px;
+      margin: 8px auto 0;
+      background: var(--gold, #c8a04a);
+    }
+    .loc-banner .loc-subtitle { color: rgba(255, 255, 255, 0.8); margin: 4px 0 0; font-size: 0.85rem; }
+    .loc-main { justify-content: flex-start; padding-top: 64px; }
+
+    /* Footer */
+    .loc-footer {
+      padding: 22px 20px;
+      border-top: 1px solid #eee;
+      text-align: center;
+      font-size: 0.75rem;
+      color: #999;
+    }
+
+    @media (max-width: 680px) {
+      .loc-main { padding: 48px 20px; }
+      .loc-subtitle { margin-bottom: 40px; }
+      .loc-banner { height: 100px; }
+      .loc-banner .loc-subtitle { margin-bottom: 0; }
+      .loc-grid { grid-template-columns: 1fr; gap: 40px; }
+      .loc-divider { width: 120px; height: 1px; justify-self: center; }
+      .loc-card__logo img { width: 100px; height: 100px; }
+    }
+  </style>
+</head>
+<body class="locations-page">
+
+  <header class="loc-banner">
+    <div class="loc-banner__inner">
+      <h1 class="loc-title">Locations</h1>
+      <p class="loc-subtitle">Choose the academy nearest you</p>
+    </div>
+  </header>
+
+  <main class="loc-main">
+    <div class="loc-grid">
+      <!-- Left: Day 1 Jiu-Jitsu (Newton) -->
+      <section class="loc-card">
+        <a href="index.html" class="loc-card__logo" aria-label="Day 1 Jiu-Jitsu Newton website">
+          <img src="images/locations/day1-logo.jpg" alt="Day 1 Jiu-Jitsu logo">
+        </a>
+        <h2 class="loc-card__city">Newton</h2>
+        <p class="loc-card__academy">Day 1 Jiu-Jitsu</p>
+        <p class="loc-card__info">
+          <a href="https://www.google.com/maps/place/Day+1+Jiu-Jitsu+Newton+by+Bernardo+Faria+%26+Marcos+Tinoco/@42.3552246,-71.1889964,17z/data=!3m1!4b1!4m6!3m5!1s0x89e379df1c202dbb:0xbe436135f7c345d!8m2!3d42.3552246!4d-71.1864161!16s%2Fg%2F11m_3l1hw_" target="_blank" rel="noopener noreferrer">447 Centre Street, Suite 101<br>Newton, MA 02458</a><br>
+          <a href="tel:8576055637">857-605-5637</a>
+        </p>
+        <a href="index.html" class="loc-card__btn">Visit Website</a>
+      </section>
+
+      <div class="loc-divider" aria-hidden="true"></div>
+
+      <!-- Right: Bernardo Faria Academy (Bedford) -->
+      <section class="loc-card">
+        <a href="https://bernardofariaacademy.com/" class="loc-card__logo" aria-label="Bernardo Faria Academy Bedford website">
+          <img src="images/locations/bf-logo.png" alt="Bernardo Faria Jiu-Jitsu logo">
+        </a>
+        <h2 class="loc-card__city">Bedford</h2>
+        <p class="loc-card__academy">Bernardo Faria Academy</p>
+        <p class="loc-card__info">
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=Bernardo+Faria+Academy+131A+Great+Road+Bedford+MA+01730" target="_blank" rel="noopener noreferrer">131A Great Road<br>Bedford, MA 01730</a><br>
+          <a href="tel:7814281364">781-428-1364</a>
+        </p>
+        <a href="https://bernardofariaacademy.com/" class="loc-card__btn">Visit Website</a>
+      </section>
+    </div>
+  </main>
+
+  <footer class="loc-footer">
+    &copy; 2026 Day 1 Jiu-Jitsu &amp; Bernardo Faria Academy
+  </footer>
+
+</body>
+</html>

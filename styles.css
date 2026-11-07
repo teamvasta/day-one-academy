@@ -1155,6 +1155,8 @@ img.review-card-page__avatar {
   transition: var(--transition);
 }
 .footer__col a:hover { color: var(--gold); }
+.footer__col .footer__loc-all { color: var(--gold); font-weight: 700; }
+.footer__col .footer__loc-all:hover { color: var(--white); }
 
 /* ========================================
    PAGE HERO (INNER PAGES)
@@ -2024,6 +2026,7 @@ img.review-card-page__avatar {
 
   .footer .container { flex-direction: column; text-align: center; align-items: center; }
   .footer__columns { flex-wrap: wrap; justify-content: center; gap: 25px; }
+  .footer__col--locations { flex-basis: 100%; }
   .footer__logo-img { margin: 0 auto 10px; }
 
   .schedule-table { font-size: 0.7rem; min-width: 650px; }
