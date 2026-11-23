@@ -4,35 +4,58 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ========== Lovato Seminar Announcement Bar (TEMPORARY) ==========
-  // Shows on the home page only. Auto-hides Oct 17, 2026 at 1 PM Eastern.
+  // ========== Black Friday Announcement Bar (TEMPORARY) ==========
+  // Shows at the top of every page (except the Black Friday page itself).
+  // Auto-removes Tuesday, Dec 1, 2026 at 12:00 AM Eastern (right after Cyber Monday ends).
   // To remove early: delete this whole block.
   try { (function () {
-    const endsAt = new Date('2026-10-17T13:00:00-04:00');
-    const onHomePage = /^\/(index(\.html)?)?$/.test(window.location.pathname);
-    if (new Date() > endsAt || !onHomePage) return;
+    const endsAt = new Date('2026-12-01T00:00:00-05:00');
+    const onPromoPage = /\/blackfriday(\.html)?$/.test(window.location.pathname);
+    if (new Date() >= endsAt || onPromoPage) return;
 
-    const bar = document.createElement('a');
-    bar.href = 'lovato.html';
-    bar.className = 'event-announce';
-    bar.innerHTML = '<strong>Rafael Lovato Gi Seminar</strong>' +
-      '<span class="event-announce__sep">·</span>Sat, Oct 17' +
-      '<span class="event-announce__cta">Reserve your spot &rarr;</span>';
+    // Leave LINK empty to show the bar as a plain notice (not clickable).
+    // When the sign-up forms are ready, set LINK = 'blackfriday.html' to add "See details →".
+    const LINK = '';
+
+    const bar = document.createElement(LINK ? 'a' : 'div');
+    if (LINK) bar.href = LINK;
+    bar.className = 'promo-announce' + (LINK ? ' promo-announce--link' : '');
+    bar.innerHTML =
+      '<span class="promo-announce__row">' +
+        '<span class="promo-announce__tag">Black Friday</span>' +
+        '<span class="promo-announce__text"><span class="promo-announce__desk">Membership Special: </span>' +
+        '<strong>$99 First Month</strong><span class="promo-announce__sep">&middot;</span>' +
+        '<span class="promo-announce__desk">100% </span>Risk-Free</span>' +
+      '</span>' +
+      '<span class="promo-announce__row">' +
+        '<span class="promo-announce__sep promo-announce__desk">&middot;</span>' +
+        '<span class="promo-announce__ends">Ends Cyber Monday</span>' +
+        (LINK ? '<span class="promo-announce__sep">&middot;</span><span class="promo-announce__cta">See details &rarr;</span>' : '') +
+      '</span>';
 
     const style = document.createElement('style');
     style.textContent =
-      '.event-announce{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:4px 10px;' +
-      'background:var(--gold);color:var(--black);padding:10px 16px;text-align:center;' +
-      'font-family:var(--font-heading);font-size:0.85rem;letter-spacing:1px;text-transform:uppercase;transition:background .2s}' +
-      '.event-announce:hover{background:var(--gold-dark);color:var(--black)}' +
-      '.event-announce__sep{opacity:.6}' +
-      '.event-announce__cta{font-weight:700;text-decoration:underline;text-underline-offset:3px;margin-left:6px}' +
-      '@media (max-width:600px){.event-announce{font-size:0.75rem}.event-announce__sep{display:none}}';
+      '.promo-announce{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:6px 0;' +
+      'padding:11px 16px;text-align:center;font-family:var(--font-heading);font-size:0.85rem;' +
+      'letter-spacing:1px;text-transform:uppercase;transition:background .2s;line-height:1.3}' +
+      '.promo-announce__row{display:inline-flex;align-items:center;flex-wrap:wrap;justify-content:center}' +
+      '.promo-announce__tag{font-weight:800;letter-spacing:2px;padding:4px 10px;margin-right:12px}' +
+      '.promo-announce__text strong{font-weight:800}' +
+      '.promo-announce__sep{opacity:.6;margin:0 8px}' +
+      '.promo-announce__ends{font-weight:700}' +
+      '.promo-announce__cta{font-weight:800;text-decoration:underline;text-underline-offset:3px}' +
+      '.promo-announce,.promo-announce:visited,.promo-announce:hover{background:var(--gold);color:var(--black)}' +
+      '.promo-announce--link:hover{background:var(--gold-light)}' +
+      '.promo-announce__tag{background:var(--black);color:var(--gold)}' +
+      /* Phones: two tight rows, shorter wording */
+      '@media (max-width:600px){.promo-announce{flex-direction:column;font-size:0.72rem;gap:5px;padding:8px 10px;letter-spacing:.5px}' +
+      '.promo-announce__desk{display:none}.promo-announce__tag{padding:3px 7px;margin-right:8px;letter-spacing:1.5px}' +
+      '.promo-announce__sep{margin:0 6px}}';
 
     document.head.appendChild(style);
     document.body.insertBefore(bar, document.body.firstChild);
   })(); } catch (e) { /* never let the banner break the page */ }
-  // ========== End Lovato Seminar Announcement Bar ==========
+  // ========== End Black Friday Announcement Bar ==========
 
   // ========== Mobile Navigation Toggle ==========
   const navToggle = document.getElementById('nav-toggle');
